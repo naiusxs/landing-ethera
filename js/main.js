@@ -151,4 +151,12 @@
         .then(done).catch(function () { btn.disabled = false; });
     });
   }
+
+  // Pausar animaciones de las secciones que no están en pantalla
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { en.target.classList.toggle("eth-offscreen", !en.isIntersecting); });
+    }, { rootMargin: "100px" });
+    document.querySelectorAll("main > section").forEach(function (sec) { io.observe(sec); });
+  }
 })();
