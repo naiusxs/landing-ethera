@@ -159,4 +159,14 @@
     }, { rootMargin: "100px" });
     document.querySelectorAll("main > section").forEach(function (sec) { io.observe(sec); });
   }
+
+  // Modo ligero en equipos modestos (<=4 núcleos, <=4 GB de RAM o ahorro de datos)
+  try {
+    var c = navigator.connection || {};
+    if ((navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4) ||
+        (navigator.deviceMemory && navigator.deviceMemory <= 4) || c.saveData ||
+        /[?&]lite=1/.test(location.search)) {
+      document.documentElement.classList.add("eth-lite");
+    }
+  } catch (e) {}
 })();

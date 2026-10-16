@@ -22,3 +22,13 @@ img{content-visibility:auto}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
 }
+
+/* Aísla el repintado de cada sección */
+main>section{contain:layout paint}
+
+/* Modo ligero: equipos con poca CPU/RAM o "ahorro de datos". main.js añade .eth-lite al <html> */
+.eth-lite [class*="blur-"]{filter:none!important}
+.eth-lite .floating,.eth-lite .floating-slow,.eth-lite .floating-delayed,.eth-lite .rotating-slow,.eth-lite .pulse-glow{animation:none!important}
+.eth-lite [class*="shadow-2xl"],.eth-lite [class*="shadow-xl"]{box-shadow:0 8px 20px rgb(0 0 0/.12)!important}
+.eth-lite img{filter:none!important}
+.eth-lite *{transition-duration:.15s!important}
