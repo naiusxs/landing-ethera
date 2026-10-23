@@ -31,8 +31,8 @@ void main(){
   vec3 col = a.w > 0. ? a.rgb / a.w : BG;
   // más color en los bordes, el centro queda calmado para leer
   float edge = smoothstep(.12, .62, abs(p.x) / (asp * .5));
-  float k = clamp(a.w, 0., 1.) * uAmp * mix(.42, 1., edge);
-  vec3 outc = mix(BG, col, clamp(k, 0., .55));
+  float k = clamp(a.w, 0., 1.) * uAmp * mix(.14, .8, edge);
+  vec3 outc = mix(BG, col, clamp(k, 0., .38));
   outc += (hash(gl_FragCoord.xy + uT) - .5) * .018;
   gl_FragColor = vec4(outc, 1.);
 }`;
@@ -73,7 +73,7 @@ export function createScene(canvas, { lite = false, reducedMotion = false } = {}
   resize();
   addEventListener("resize", resize);
 
-  const st = { scroll: 0, px: 0.5, py: 0.5, tx: 0.5, ty: 0.5, amp: innerWidth < 700 ? 0.55 : 0.85, active: true, raf: 0, last: 0 };
+  const st = { scroll: 0, px: 0.5, py: 0.5, tx: 0.5, ty: 0.5, amp: innerWidth < 700 ? 0.4 : 0.7, active: true, raf: 0, last: 0 };
   const frame = (now) => {
     st.raf = 0;
     if (!st.active) return;

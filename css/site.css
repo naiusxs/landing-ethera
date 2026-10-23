@@ -320,3 +320,12 @@ em { font-style: normal; color: var(--accent); }
   .tag { font-size: 0.75rem; padding: 8px 12px; }
   .hero__cta .btn { width: 100%; }
 }
+
+/* velo beige tras los textos sin tarjeta: el color del fondo nunca compite con la lectura */
+.hero__copy, .head, .split__copy, .final__in, .extras { position: relative; isolation: isolate; }
+.hero__copy::before, .head::before, .split__copy::before, .final__in::before, .extras::before {
+  content: ""; position: absolute; inset: -6% -8%; z-index: -1; pointer-events: none;
+  background: radial-gradient(closest-side, rgba(255, 252, 240, 0.94) 55%, rgba(255, 252, 240, 0) 100%);
+}
+.hero__copy::before { inset: -8% -10%; }
+.slogan, .step, .card, .plan, .qa { backdrop-filter: none; }
