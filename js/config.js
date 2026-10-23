@@ -8,17 +8,20 @@ window.ETHERA_CONFIG = {
   facebookUrl: "",
   privacyUrl: "",
 
+  // ID del píxel de Meta (solo números). Vacío = no se carga el píxel ni se envía ningún evento.
+  metaPixelId: "",
+
   // Precio mostrado (COP) y enlace de checkout de cada plan.
   // Mientras checkoutUrl esté vacío el botón queda deshabilitado.
   plans: {
-    "1month":  { price: "", checkoutUrl: "" },
+    "1month": { price: "", checkoutUrl: "" },
     "3months": { price: "", checkoutUrl: "" },
     "6months": { price: "", checkoutUrl: "" },
   },
-};
 
-// Popup de descuento. newsletterEndpoint recibe un POST JSON {email, perfil}
-// (Klaviyo, Mailchimp, Make/Zapier, tu backend...). Vacío = solo muestra el mensaje de gracias.
-window.ETHERA_CONFIG.newsletterEndpoint = "";
-window.ETHERA_CONFIG.popupDelayMs = 3000;
-window.ETHERA_CONFIG.discountCode = "";
+  // Popup de descuento. newsletterEndpoint recibe un POST JSON {email, perfil}
+  // (Klaviyo, Mailchimp, Make/Zapier, tu backend...). Vacío = solo muestra el mensaje de gracias.
+  newsletterEndpoint: "",
+  popupDelayMs: 3000,
+  discountCode: "",
+};

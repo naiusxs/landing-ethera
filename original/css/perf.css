@@ -1,0 +1,85 @@
+/* Optimización de rendimiento: mismo diseño, menos coste de GPU */
+
+/* Capas decorativas ya son degradados suaves: un blur enorme no aporta y es lo más caro de pintar.
+   Selectores por atributo para cubrir también las variantes sm:/md:/lg: */
+[class*="blur-["] {
+  filter: blur(32px) !important;
+  transform: translateZ(0);
+}
+[class*="blur-3xl"],
+[class*="blur-2xl"] {
+  filter: blur(28px) !important;
+  transform: translateZ(0);
+}
+[class*=" blur-xl"],
+[class^="blur-xl"] {
+  filter: blur(18px) !important;
+}
+[class*=" blur-lg"],
+[class^="blur-lg"] {
+  filter: blur(12px) !important;
+}
+
+/* backdrop-filter sobre contenido animado es muy costoso; los fondos ya son casi opacos */
+.backdrop-blur-sm,
+.backdrop-blur-md {
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+#nav.backdrop-blur-md {
+  background-color: hsl(var(--background) / 0.97);
+}
+
+/* No renderizar secciones fuera de pantalla */
+main > section:not(:first-child) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
+}
+
+/* Animaciones en pausa cuando la sección no está visible (clase puesta por main.js) */
+.eth-offscreen,
+.eth-offscreen * {
+  animation-play-state: paused !important;
+}
+
+img {
+  content-visibility: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Aísla el repintado de cada sección */
+main > section {
+  contain: layout paint;
+}
+
+/* Modo ligero: equipos con poca CPU/RAM o "ahorro de datos". main.js añade .eth-lite al <html> */
+.eth-lite [class*="blur-"] {
+  filter: none !important;
+}
+.eth-lite .floating,
+.eth-lite .floating-slow,
+.eth-lite .floating-delayed,
+.eth-lite .rotating-slow,
+.eth-lite .pulse-glow {
+  animation: none !important;
+}
+.eth-lite [class*="shadow-2xl"],
+.eth-lite [class*="shadow-xl"] {
+  box-shadow: 0 8px 20px rgb(0 0 0/0.12) !important;
+}
+.eth-lite img {
+  filter: none !important;
+}
+.eth-lite * {
+  transition-duration: 0.15s !important;
+}

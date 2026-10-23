@@ -1,0 +1,15 @@
+{
+  "name": "ethera-landing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Landing de ETHERA (Melena de León)",
+  "scripts": {
+    "build:css": "tailwindcss -i src/input.css -o css/styles.css --minify",
+    "watch:css": "tailwindcss -i src/input.css -o css/styles.css --watch"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "4.2.4",
+    "prettier": "^3.9.10",
+    "tailwindcss": "4.2.4"
+  }
+}
