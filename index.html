@@ -3,814 +3,572 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>ETHERA | Melena de León - Suplemento Natural para la Mente</title>
+    <title>Ethera · Melena de León, fórmula en polvo para tu rutina</title>
     <meta
       name="description"
-      content="Despierta tu mente con Melena de León de ETHERA. Cultivo artesanal, medicina ancestral para el enfoque, memoria y claridad mental. Envío gratis."
+      content="Ethera Melena de León: una fórmula en polvo de 450 g que reúne 11 ingredientes en una propuesta de bienestar consciente. Haz espacio para una mente más enfocada."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="ETHERA | Melena de León - Medicina Ancestral" />
+    <meta property="og:title" content="Ethera · Melena de León" />
     <meta
       property="og:description"
-      content="Despierta tu mente con Melena de León. Cultivo artesanal para el enfoque, memoria y claridad mental."
+      content="Una fórmula en polvo de 450 g con 11 ingredientes para acompañar tu rutina y tus momentos de concentración."
     />
+    <meta property="og:image" content="assets/brand/jar.webp" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="ETHERA | Melena de León" />
-    <meta name="twitter:description" content="Despierta tu mente con Melena de León de ETHERA." />
-    <meta name="theme-color" content="#22142f" />
+    <meta name="theme-color" content="#fffcf0" />
     <link rel="icon" href="favicon.png" type="image/png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap"
-    />
+    <link rel="preload" href="fonts/garamond-bold.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="fonts/gilroy-500.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="assets/brand/jar.webp" as="image" />
     <link rel="stylesheet" href="css/site.css" />
     <script>
       document.documentElement.classList.add("js");
-    </script>
-    <script type="importmap">
-      { "imports": { "three": "./vendor/three.module.min.js" } }
     </script>
   </head>
   <body>
     <a class="skip" href="#contenido">Saltar al contenido</a>
 
-    <!-- Red de micelio (WebGL). Es decorativa; el contenido no depende de ella. -->
-    <canvas id="mycelium" aria-hidden="true"></canvas>
+    <!-- Aura de color (WebGL). Es decorativa; el contenido no depende de ella. -->
+    <canvas id="aura" aria-hidden="true"></canvas>
 
-    <!-- Cinta superior -->
-    <div class="ticker" role="region" aria-label="Avisos">
-      <div class="ticker__track">
-        <ul class="ticker__set">
-          <li>Envío Gratis a toda Colombia</li>
-          <li>Garantía de satisfacción</li>
-          <li>+2,500 clientes satisfechos · 4.9/5</li>
-        </ul>
-        <ul class="ticker__set" aria-hidden="true">
-          <li>Envío Gratis a toda Colombia</li>
-          <li>Garantía de satisfacción</li>
-          <li>+2,500 clientes satisfechos · 4.9/5</li>
-        </ul>
-      </div>
-    </div>
+    <div class="rainbow" aria-hidden="true"></div>
 
     <header class="nav" id="nav">
-      <a class="nav__brand" href="#" aria-label="ETHERA, ir al inicio">
-        <img src="assets/logo-pink-border.webp" alt="" width="40" height="40" />
-        <span>ETHERA</span>
-      </a>
-      <nav class="nav__links" aria-label="Principal">
-        <a href="#beneficios">Beneficios</a>
-        <a href="#como-funciona">Cómo funciona</a>
-        <a href="#ofertas">Ofertas</a>
-        <a href="#faq">Preguntas</a>
-      </nav>
-      <a class="btn btn--small btn--signal" href="#ofertas">Comprar Ahora</a>
+      <div class="wrap nav__in">
+        <a class="nav__brand" href="#" aria-label="Ethera, ir al inicio">
+          <img src="assets/brand/logo-color.webp" alt="Ethera" width="692" height="252" />
+        </a>
+        <nav class="nav__links" aria-label="Principal">
+          <a href="#formula">La fórmula</a>
+          <a href="#como-funciona">Cómo funciona</a>
+          <a href="#filosofia">Filosofía</a>
+          <a href="#experiencias">Experiencias</a>
+          <a href="#planes">Planes</a>
+          <a href="#faq">Dudas</a>
+        </nav>
+        <a class="btn btn--sm" href="#planes">Descubrir oferta</a>
+      </div>
     </header>
 
     <main id="contenido">
       <!-- ================= HERO ================= -->
-      <section class="hero panel panel--dark panel--net" id="inicio" data-scene="0">
-        <div class="hero__inner">
+      <section class="hero" id="inicio">
+        <div class="wrap hero__grid">
           <div class="hero__copy">
-            <p class="hero__lab">
-              <img src="assets/logo-ethera.webp" alt="" width="56" height="56" />
-              <span>Laboratorio Artesano Colombiano</span>
-            </p>
-            <h1 class="hero__title" data-split>Desbloquea tu máximo potencial cognitivo</h1>
+            <p class="pill hero__pill">Ethera · Functional Blend</p>
+            <h1 class="hero__title" data-split>
+              Haz espacio para una mente <em>más enfocada.</em>
+            </h1>
             <p class="hero__lede">
-              Con Melena de León fermentada, el suplemento natural que potencia tu enfoque, memoria y claridad mental
-              desde la primera semana.
+              Una fórmula en polvo que reúne 11 ingredientes en una propuesta pensada para acompañar tu rutina y tus
+              momentos de concentración y actividad.
             </p>
             <div class="hero__cta">
-              <a class="btn btn--signal btn--big" href="#ofertas" data-magnet>Quiero Potenciar Mi Mente</a>
-              <a class="btn btn--ghost btn--big" href="#como-funciona">Descubre Cómo Funciona</a>
+              <a class="btn" href="#planes" data-magnet>Quiero descubrir Ethera</a>
+              <a class="btn btn--ghost" href="#formula" data-magnet>Conoce la fórmula</a>
             </div>
-            <div class="proof">
-              <ul class="proof__faces" aria-hidden="true">
-                <li>M</li>
-                <li>C</li>
-                <li>L</li>
-              </ul>
-              <p>
-                <strong>+2,500 personas</strong> ya transformaron su mente
-                <span class="proof__rate">4.9/5 en reseñas</span>
-              </p>
-            </div>
+            <ul class="checks">
+              <li>450 g</li>
+              <li>11 ingredientes</li>
+              <li>Formato en polvo</li>
+            </ul>
           </div>
 
           <div class="hero__stage" aria-hidden="false">
-            <img class="stk stk--ufo" data-depth="26" src="assets/ufo.webp" alt="" width="640" height="800" />
-            <img class="stk stk--brain" data-depth="40" src="assets/brain.webp" alt="" width="400" height="400" />
-            <img class="stk stk--eye" data-depth="18" src="assets/eye-circle.webp" alt="" width="400" height="400" />
-            <img class="stk stk--pill" data-depth="34" src="assets/capsule-eye.webp" alt="" width="500" height="500" />
+            <div class="hero__disc"></div>
             <img
-              class="hero__product"
-              data-depth="10"
-              src="assets/product-1month.webp"
-              alt="Frasco de Melena de León ETHERA, 60 cápsulas"
-              width="600"
-              height="600"
+              class="hero__jar"
+              src="assets/brand/jar.webp"
+              alt="Frasco de Ethera Melena de León, 450 g"
+              width="1000"
+              height="1039"
               fetchpriority="high"
             />
-            <p class="hero__hint">Mueve el cursor. El micelio responde.</p>
-          </div>
-        </div>
-
-        <ul class="specs" aria-label="Características del producto">
-          <li><strong>100% Natural</strong></li>
-          <li><strong>Cultivo Biotecnológico</strong></li>
-          <li><strong>Envío Gratis</strong> por frasco</li>
-          <li><strong>60 cápsulas</strong> · 450mg cada una</li>
-        </ul>
-        <a class="hero__scroll" href="#perfil">Descubre más</a>
-      </section>
-
-      <!-- ================= PERFIL (interactivo) ================= -->
-      <section class="perfil panel panel--dark panel--solid" id="perfil">
-        <div class="wrap bento perfil__bento">
-          <div class="tile tile--dark perfil__title">
-            <h2 class="h2">¿Qué quieres despertar?</h2>
-            <p class="lede">Elige lo que buscas y el recorrido toma su color.</p>
-          </div>
-
-          <div class="tile tile--accent perfil__panel" aria-live="polite">
-            <div class="perfil__copy is-on" data-for="artista" role="tabpanel">
-              <h3>Energía creativa</h3>
-              <p>Vitalidad sostenida durante todo el día sin los efectos secundarios del café o estimulantes.</p>
-              <p class="perfil__also">Claridad mental ideal para mentes creativas y analíticas.</p>
-            </div>
-            <div class="perfil__copy" data-for="empresario" role="tabpanel" hidden>
-              <h3>Claridad Mental</h3>
-              <p>Potencia tu enfoque, concentración y capacidad cognitiva.</p>
-              <p class="perfil__also">
-                Equilibrio emocional: reduce la ansiedad y el estrés, con calma y presencia interior.
-              </p>
-            </div>
-            <div class="perfil__copy" data-for="estudiante" role="tabpanel" hidden>
-              <h3>Memoria Mejorada</h3>
-              <p>
-                Estimula la producción de NGF, el factor de crecimiento nervioso que apoya la memoria y el aprendizaje.
-              </p>
-              <p class="perfil__also">Neurogénesis para un cerebro más adaptable y resiliente.</p>
-            </div>
-            <img class="tile__stk perfil__stk" src="assets/brain.webp" alt="" width="400" height="400" loading="lazy" />
-          </div>
-
-          <div class="tile tile--dark perfil__chips-tile">
-            <div class="perfil__chips" role="tablist" aria-label="Lo que busco">
-              <button class="chip is-on" role="tab" aria-selected="true" data-perfil="artista" data-accent="#DC4E88">
-                Creatividad
-              </button>
-              <button class="chip" role="tab" aria-selected="false" data-perfil="empresario" data-accent="#E3B05A">
-                Mejora cognitiva
-              </button>
-              <button class="chip" role="tab" aria-selected="false" data-perfil="estudiante" data-accent="#6C93E6">
-                Rendimiento
-              </button>
-            </div>
+            <span class="tag tag--a">15 porciones</span>
+            <span class="tag tag--b">30 g por porción</span>
           </div>
         </div>
       </section>
 
-      <!-- ================= BENEFICIOS ================= -->
-      <section class="benef panel panel--dark panel--solid" id="beneficios">
-        <div class="wrap bento benef__bento">
-          <div class="tile tile--dark benef__head">
-            <h2 class="h2">El poder de la Melena de León</h2>
+      <!-- ================= LA FÓRMULA ================= -->
+      <section class="sec" id="formula">
+        <div class="wrap">
+          <header class="head">
+            <p class="eyebrow">La fórmula</p>
+            <h2 class="h2">Una fórmula creada <em>para acompañar tu rutina</em></h2>
             <p class="lede">
-              Un hongo funcional reverenciado durante milenios por sus extraordinarias propiedades nootrópicas y su
-              capacidad de regeneración neuronal.
+              Una combinación de ingredientes para quienes buscan incorporar nuevas opciones a su día y prestar mayor
+              atención a sus hábitos.
             </p>
-            <img
-              class="benef__sticker"
-              src="assets/melena-leon-logo.webp"
-              alt="Melena de León, ilustración con un ojo"
-              width="300"
-              height="300"
-              loading="lazy"
-            />
-          </div>
-          <article class="tile tile--oro">
-            <h3>Claridad Mental</h3>
-            <p>Potencia tu enfoque, concentración y capacidad cognitiva. Ideal para mentes creativas y analíticas.</p>
-            <img
-              class="tile__stk"
-              style="--r: -10deg"
-              src="assets/eye-circle.webp"
-              alt=""
-              width="200"
-              height="200"
-              loading="lazy"
-            />
-          </article>
-          <article class="tile tile--celeste">
-            <h3>Memoria Mejorada</h3>
-            <p>
-              Estimula la producción de NGF, el factor de crecimiento nervioso que apoya la memoria y el aprendizaje.
-            </p>
-            <img
-              class="tile__stk"
-              style="--r: 8deg"
-              src="assets/brain.webp"
-              alt=""
-              width="200"
-              height="200"
-              loading="lazy"
-            />
-          </article>
-          <article class="tile tile--magenta benef__wide">
-            <h3>Energía Creativa</h3>
-            <p>Vitalidad sostenida durante todo el día sin los efectos secundarios del café o estimulantes.</p>
-            <img
-              class="tile__stk"
-              style="--r: -14deg"
-              src="assets/capsule-eye.webp"
-              alt=""
-              width="200"
-              height="200"
-              loading="lazy"
-            />
-          </article>
-          <article class="tile tile--hueso">
-            <h3>Equilibrio Emocional</h3>
-            <p>Reduce la ansiedad y el estrés, promoviendo un estado de calma y presencia interior.</p>
-            <img
-              class="tile__stk"
-              style="--r: 6deg"
-              src="assets/meditation.webp"
-              alt=""
-              width="200"
-              height="200"
-              loading="lazy"
-            />
-          </article>
-          <article class="tile tile--dark benef__wide">
-            <h3>Neurogénesis</h3>
-            <p>
-              Estimula la creación de nuevas neuronas y conexiones neuronales para un cerebro más adaptable y
-              resiliente.
-            </p>
-            <img
-              class="tile__stk"
-              style="--r: -6deg"
-              src="assets/mushrooms-group.webp"
-              alt=""
-              width="200"
-              height="200"
-              loading="lazy"
-            />
-          </article>
-          <article class="tile tile--rosa">
-            <h3>Medicina Ancestral</h3>
-            <p>Sabiduría milenaria de los hongos funcionales usados por culturas orientales durante siglos.</p>
-            <img
-              class="tile__stk"
-              style="--r: 10deg"
-              src="assets/mushroom-single.webp"
-              alt=""
-              width="200"
-              height="200"
-              loading="lazy"
-            />
-          </article>
-        </div>
-      </section>
+          </header>
 
-      <div class="band band--oro band--tilt-l" aria-hidden="true">
-        <div class="band__track">
-          <div class="band__set">
-            <span>Melena de León fermentada</span
-            ><img src="assets/eye-circle.webp" alt="" width="40" height="40" loading="lazy" /><span
-              >Todos somos creadores</span
-            ><img src="assets/mushroom-single.webp" alt="" width="40" height="40" loading="lazy" /><span
-              >Cultivo biotecnológico</span
-            ><img src="assets/ufo.webp" alt="" width="40" height="40" loading="lazy" /><span>Hecho en Colombia</span
-            ><img src="assets/brain.webp" alt="" width="40" height="40" loading="lazy" />
-          </div>
-          <div class="band__set">
-            <span>Melena de León fermentada</span
-            ><img src="assets/eye-circle.webp" alt="" width="40" height="40" loading="lazy" /><span
-              >Todos somos creadores</span
-            ><img src="assets/mushroom-single.webp" alt="" width="40" height="40" loading="lazy" /><span
-              >Cultivo biotecnológico</span
-            ><img src="assets/ufo.webp" alt="" width="40" height="40" loading="lazy" /><span>Hecho en Colombia</span
-            ><img src="assets/brain.webp" alt="" width="40" height="40" loading="lazy" />
-          </div>
-        </div>
-      </div>
-
-      <!-- ================= CÓMO FUNCIONA (scroll pegajoso) ================= -->
-      <section class="how" id="como-funciona" data-scene="how">
-        <div class="how__sticky panel panel--dark panel--net">
-          <div class="wrap how__grid">
-            <div class="how__intro">
-              <h2 class="h2">Cómo funciona</h2>
-              <p class="lede">4 pasos para entender por qué la Melena de León fermentada transforma tu mente.</p>
-              <p class="how__tag">La ciencia detrás</p>
-            </div>
-
-            <ol class="how__steps" id="how-steps">
-              <li class="step is-on">
-                <span class="step__n">1</span>
-                <div>
-                  <h3>Fermentación bioactiva</h3>
-                  <p>
-                    La Melena de León fermentada libera hericenones y erinacinas, compuestos clave que el cuerpo absorbe
-                    con mayor facilidad.
-                  </p>
-                </div>
-              </li>
-              <li class="step">
-                <span class="step__n">2</span>
-                <div>
-                  <h3>Cruzan la barrera cerebral</h3>
-                  <p>
-                    Estos compuestos atraviesan la barrera hematoencefálica y estimulan la producción del Factor de
-                    Crecimiento Nervioso (NGF).
-                  </p>
-                </div>
-              </li>
-              <li class="step">
-                <span class="step__n">3</span>
-                <div>
-                  <h3>Neurogénesis activa</h3>
-                  <p>
-                    El NGF favorece la regeneración y conexión de neuronas, fortaleciendo tu sistema nervioso desde
-                    adentro.
-                  </p>
-                </div>
-              </li>
-              <li class="step">
-                <span class="step__n">4</span>
-                <div>
-                  <h3>Resultados sostenidos</h3>
-                  <p>
-                    Mayor enfoque, memoria y creatividad. Los primeros cambios se sienten desde la primera semana de uso
-                    constante.
-                  </p>
-                </div>
-              </li>
-            </ol>
-          </div>
-          <div class="how__rail" aria-hidden="true"><i id="how-fill"></i></div>
-        </div>
-      </section>
-
-      <div class="band band--magenta band--tilt-r" aria-hidden="true">
-        <div class="band__track">
-          <div class="band__set">
-            <span>Neurogénesis</span
-            ><img src="assets/eye-circle.webp" alt="" width="40" height="40" loading="lazy" /><span
-              >Enfoque · memoria · claridad</span
-            ><img src="assets/mushroom-single.webp" alt="" width="40" height="40" loading="lazy" /><span
-              >Medicina ancestral</span
-            ><img src="assets/ufo.webp" alt="" width="40" height="40" loading="lazy" /><span>Arte y micelio</span
-            ><img src="assets/brain.webp" alt="" width="40" height="40" loading="lazy" />
-          </div>
-          <div class="band__set">
-            <span>Neurogénesis</span
-            ><img src="assets/eye-circle.webp" alt="" width="40" height="40" loading="lazy" /><span
-              >Enfoque · memoria · claridad</span
-            ><img src="assets/mushroom-single.webp" alt="" width="40" height="40" loading="lazy" /><span
-              >Medicina ancestral</span
-            ><img src="assets/ufo.webp" alt="" width="40" height="40" loading="lazy" /><span>Arte y micelio</span
-            ><img src="assets/brain.webp" alt="" width="40" height="40" loading="lazy" />
-          </div>
-        </div>
-      </div>
-
-      <!-- ================= FILOSOFÍA (hueso, mesa de pegatinas) ================= -->
-      <section class="philo panel panel--light" id="filosofia">
-        <div class="wrap philo__grid">
-          <div class="philo__col">
-            <h2 class="h2">De Laboratorio a Ecosistema</h2>
-            <p>
-              ETHERA nació como una <strong>semilla sembrada en el corazón</strong>: un llamado desde la tierra, el alma
-              y la consciencia. Un impulso que brotó desde las raíces más profundas para florecer en forma de hongos,
-              arte, comunidad y propósito.
-            </p>
-            <p>
-              Hoy, ETHERA ya no es solo un laboratorio. Es un <strong>ecosistema para creadores conscientes</strong>, un
-              entorno donde la medicina ancestral, la biotecnología y la expresión creativa conviven, se nutren y se
-              expanden.
-            </p>
-            <blockquote class="philo__quote">"Aquí no solo florece el micelio, florece tu camino."</blockquote>
+          <div class="cards" id="ingredients">
+            <article class="card" data-spot>
+              <span class="card__ic" style="--bx: 8%; --by: 20%">01</span>
+              <h3>Melena de León</h3>
+              <p>Un hongo estudiado por su relación con la función cognitiva y la salud del sistema nervioso.</p>
+            </article>
+            <article class="card" data-spot>
+              <span class="card__ic" style="--bx: 30%; --by: 70%">02</span>
+              <h3>Colina (Alfa-GPC)</h3>
+              <p>
+                Aporta colina, un nutriente involucrado en la producción de acetilcolina, relacionada con la memoria y
+                el aprendizaje.
+              </p>
+            </article>
+            <article class="card" data-spot>
+              <span class="card__ic" style="--bx: 55%; --by: 30%">03</span>
+              <h3>Treonato de Magnesio</h3>
+              <p>Una forma de magnesio, mineral esencial para el funcionamiento normal del sistema nervioso.</p>
+            </article>
+            <article class="card" data-spot>
+              <span class="card__ic" style="--bx: 80%; --by: 80%">04</span>
+              <h3>Tirosina y fenilalanina</h3>
+              <p>
+                Aminoácidos que participan en la producción de neurotransmisores relacionados con distintas funciones
+                cerebrales.
+              </p>
+            </article>
+            <article class="card" data-spot>
+              <span class="card__ic" style="--bx: 95%; --by: 35%">05</span>
+              <h3>DHA</h3>
+              <p>
+                Omega-3 que contribuye al mantenimiento de la función cerebral normal como parte de una alimentación
+                adecuada.
+              </p>
+            </article>
+            <article class="card" data-spot>
+              <span class="card__ic" style="--bx: 70%; --by: 5%">06</span>
+              <h3>Guaraná</h3>
+              <p>Fuente natural de cafeína, conocida por su efecto estimulante y su relación con el estado de alerta.</p>
+            </article>
           </div>
 
-          <div class="table" id="sticker-table">
-            <img
-              class="drag drag--1"
-              src="assets/community-art.webp"
-              alt="Tres figuras meditando"
-              width="640"
-              height="640"
-              loading="lazy"
-            />
-            <img
-              class="drag drag--2"
-              src="assets/connection-art.webp"
-              alt="Dos perfiles conectados por colores"
-              width="640"
-              height="640"
-              loading="lazy"
-            />
-            <img
-              class="drag drag--3"
-              src="assets/community-circle.webp"
-              alt=""
-              width="640"
-              height="800"
-              loading="lazy"
-            />
-            <img
-              class="drag drag--4"
-              src="assets/mushrooms-group.webp"
-              alt=""
-              width="640"
-              height="800"
-              loading="lazy"
-            />
-            <img class="drag drag--5" src="assets/eye-circle.webp" alt="" width="400" height="400" loading="lazy" />
-            <img class="drag drag--6" src="assets/brain.webp" alt="" width="400" height="400" loading="lazy" />
-            <p class="table__hint">Arrastra las pegatinas</p>
-          </div>
-        </div>
-
-        <div class="wrap philo__psico">
-          <h2 class="h2 philo__word">Psicodelia: manifestación del alma</h2>
-          <div class="philo__etym">
-            <p>La palabra "psicodelia" proviene del griego:</p>
-            <div class="philo__tiles">
-              <p class="tile tile--oro"><b>Psico</b> = alma</p>
-              <p class="tile tile--rosa"><b>Delia</b> = manifestar</p>
-            </div>
-            <p>Literalmente significa "manifestación del alma".</p>
-          </div>
-          <p class="philo__big" id="philo-big">
-            Creemos que todos somos creadores. Crear es emprender desde el alma, acompañar un proceso terapéutico,
-            sostener una ceremonia, escribir un manifiesto, sembrar una empresa, canalizar un propósito. La creatividad,
-            para nosotros, es medicina. Y los hongos son el canal para abrir la mente, el alma y la imaginación a nuevas
-            formas de ser, sanar y existir.
+          <p class="extras">
+            <span>Y además</span>
+            <b>Taurina</b><b>Salvia</b><b>Arándano azul</b><b>Cacao</b>
           </p>
         </div>
       </section>
 
-      <!-- ================= TESTIMONIOS ================= -->
-      <section class="voices panel panel--dark panel--solid" id="testimonios">
-        <div class="wrap voices__top">
-          <div>
-            <h2 class="h2">Voces de nuestra Comunidad</h2>
-            <p class="lede">Historias reales de transformación y consciencia expandida</p>
-          </div>
-          <dl class="stats">
-            <div class="tile tile--oro">
-              <dd>2,500+</dd>
-              <dt>Clientes Felices</dt>
-            </div>
-            <div class="tile tile--rosa">
-              <dd>4.9</dd>
-              <dt>Calificación Promedio</dt>
-            </div>
-            <div class="tile tile--celeste">
-              <dd>100%</dd>
-              <dt>Satisfacción</dt>
-            </div>
-          </dl>
-        </div>
+      <!-- ================= CÓMO FUNCIONA ================= -->
+      <section class="sec" id="como-funciona">
+        <div class="wrap">
+          <header class="head">
+            <p class="eyebrow">Cómo funciona</p>
+            <h2 class="h2">Una fórmula. <em>Un momento para enfocarte.</em></h2>
+            <p class="lede">
+              Incorpora Ethera a tu rutina y descubre una forma práctica de acompañar tus días de actividad mental.
+            </p>
+          </header>
 
-        <div
-          class="voices__viewport"
-          id="carousel-viewport"
-          tabindex="0"
-          aria-label="Testimonios, desliza para ver más"
-        >
-          <ul class="voices__track" id="carousel-track">
-            <li>
-              <img src="assets/placeholder-9x16.svg" alt="Testimonio 1" width="270" height="480" loading="lazy" />
+          <ol class="steps" id="steps">
+            <li class="step">
+              <span class="step__n">1</span>
+              <span class="step__ic">
+                <svg viewBox="0 0 48 48" aria-hidden="true">
+                  <path d="M12 10h24l-3 28a3 3 0 0 1-3 3H18a3 3 0 0 1-3-3Z" />
+                  <path d="M13.5 20h21" />
+                  <path d="M28 6 22 24" />
+                </svg>
+              </span>
+              <h3>Prepara tu fórmula</h3>
+              <p>Disuelve 30 g de Ethera en agua, siguiendo las indicaciones de su etiquetado.</p>
             </li>
-            <li>
-              <img src="assets/placeholder-9x16.svg" alt="Testimonio 2" width="270" height="480" loading="lazy" />
+            <li class="step">
+              <span class="step__n">2</span>
+              <span class="step__ic">
+                <svg viewBox="0 0 48 48" aria-hidden="true">
+                  <path d="M24 22c-4-4-10-1-8 4 1 3 5 5 8 7 3-2 7-4 8-7 2-5-4-8-8-4Z" />
+                  <path d="M6 32c4 0 7 2 10 5l6 1M42 32c-4 0-7 2-10 5l-6 1" />
+                </svg>
+              </span>
+              <h3>Integra nuevos hábitos</h3>
+              <p>
+                Acompaña tu rutina con hábitos que favorezcan tu bienestar, como una alimentación equilibrada, un
+                descanso adecuado y pausas conscientes.
+              </p>
             </li>
-            <li>
-              <img src="assets/placeholder-9x16.svg" alt="Testimonio 3" width="270" height="480" loading="lazy" />
+            <li class="step">
+              <span class="step__n">3</span>
+              <span class="step__ic">
+                <svg viewBox="0 0 48 48" aria-hidden="true">
+                  <circle cx="24" cy="24" r="15" />
+                  <circle cx="24" cy="24" r="8" />
+                  <circle cx="24" cy="24" r="1.6" />
+                </svg>
+              </span>
+              <h3>Dale espacio a tu concentración</h3>
+              <p>
+                Crea un entorno que te permita dedicar atención a tus tareas, reducir distracciones y organizar mejor
+                tu día.
+              </p>
             </li>
-            <li>
-              <img src="assets/placeholder-9x16.svg" alt="Testimonio 4" width="270" height="480" loading="lazy" />
+            <li class="step">
+              <span class="step__n">4</span>
+              <span class="step__ic">
+                <svg viewBox="0 0 48 48" aria-hidden="true">
+                  <path d="M24 8v6M24 34v6M8 24h6M34 24h6M13 13l4 4M31 31l4 4M35 13l-4 4M17 31l-4 4" />
+                  <circle cx="24" cy="24" r="4" />
+                </svg>
+              </span>
+              <h3>Hazlo a tu manera.</h3>
+              <p>
+                La fórmula es parte de tu rutina, no un sustituto del descanso ni de los hábitos que contribuyen a tu
+                bienestar.
+              </p>
             </li>
-            <li>
-              <img src="assets/placeholder-9x16.svg" alt="Testimonio 5" width="270" height="480" loading="lazy" />
-            </li>
-            <li>
-              <img src="assets/placeholder-9x16.svg" alt="Testimonio 6" width="270" height="480" loading="lazy" />
-            </li>
-            <li>
-              <img src="assets/placeholder-9x16.svg" alt="Testimonio 7" width="270" height="480" loading="lazy" />
-            </li>
-            <li>
-              <img src="assets/placeholder-9x16.svg" alt="Testimonio 8" width="270" height="480" loading="lazy" />
-            </li>
-            <li>
-              <img src="assets/placeholder-9x16.svg" alt="Testimonio 9" width="270" height="480" loading="lazy" />
-            </li>
-            <li>
-              <img src="assets/placeholder-9x16.svg" alt="Testimonio 10" width="270" height="480" loading="lazy" />
-            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ================= LEMA (arcoíris de marca) ================= -->
+      <section class="slogan" aria-label="Lema de la marca">
+        <p class="slogan__t" id="slogan">
+          Cuidar del cuerpo no es una meta. Es una conversación constante.
+        </p>
+      </section>
+
+      <!-- ================= FILOSOFÍA ================= -->
+      <section class="sec" id="filosofia">
+        <div class="wrap split">
+          <div class="split__copy">
+            <p class="eyebrow">Nuestra filosofía</p>
+            <h2 class="h2">De la intención al <em>bienestar cotidiano</em></h2>
+            <p>
+              Ethera nace de una idea: el bienestar no tiene que ser una búsqueda constante de perfección. También puede
+              construirse a través de pequeñas decisiones, hábitos conscientes y curiosidad por aquello que incorporamos
+              a nuestra vida.
+            </p>
+            <p>Creemos en una forma de bienestar que une conocimiento, estética y atención a uno mismo.</p>
+            <p>No buscamos prometerte una transformación instantánea. Queremos invitarte a elegir con intención.</p>
+            <blockquote class="quote" id="quote">«El bienestar comienza en las decisiones que haces tuyas»</blockquote>
+          </div>
+          <figure class="split__fig">
+            <div class="panel panel--rainbow" data-float>
+              <img src="assets/brand/logo-blanco.webp" alt="Ethera" width="692" height="252" loading="lazy" />
+              <p>De adentro hacia afuera</p>
+            </div>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ================= MENTE Y PRESENCIA ================= -->
+      <section class="sec" id="presencia">
+        <div class="wrap split split--rev">
+          <figure class="split__fig">
+            <div class="panel panel--orb" data-float>
+              <img src="assets/brand/orb.webp" alt="" width="640" height="640" loading="lazy" />
+            </div>
+          </figure>
+          <div class="split__copy">
+            <p class="eyebrow">Mente y presencia</p>
+            <h2 class="h2">Haz espacio para <em>lo que importa</em></h2>
+            <p>
+              Vivimos rodeados de estímulos, pendientes y nuevas exigencias. En medio de todo eso, detenernos a elegir
+              cómo queremos vivir nuestro día también importa.
+            </p>
+            <p>
+              Para Ethera, el bienestar consciente no consiste en hacerlo todo. Consiste en prestar atención a lo que
+              eliges, construir hábitos propios y encontrar una forma más intencional de relacionarte contigo.
+            </p>
+            <p>Porque tu rutina también puede reflejar aquello que valoras.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= EXPERIENCIAS ================= -->
+      <section class="sec" id="experiencias">
+        <div class="wrap">
+          <header class="head">
+            <p class="eyebrow">Experiencias Ethera</p>
+            <h2 class="h2">La experiencia de <em>nuestra comunidad</em></h2>
+            <p class="lede">
+              Cada persona construye su propia relación con el bienestar. Descubre las experiencias reales de quienes
+              han incorporado Ethera a su rutina.
+            </p>
+          </header>
+        </div>
+        <div class="carousel" id="carousel" tabindex="0" aria-label="Experiencias de la comunidad">
+          <ul class="carousel__track" id="carousel-track">
+            <li class="exp" style="--bx: 12%; --by: 20%"><span>Próximamente</span></li>
+            <li class="exp" style="--bx: 40%; --by: 85%"><span>Próximamente</span></li>
+            <li class="exp" style="--bx: 70%; --by: 25%"><span>Próximamente</span></li>
+            <li class="exp" style="--bx: 95%; --by: 70%"><span>Próximamente</span></li>
           </ul>
         </div>
-
-        <div class="wrap voices__foot">
-          <p class="voices__swipe">Desliza para ver más</p>
-          <div class="voices__nav">
-            <button class="round" data-carousel="prev" aria-label="Anterior"></button>
-            <button class="round round--next" data-carousel="next" aria-label="Siguiente"></button>
-          </div>
+        <div class="wrap carousel__nav" id="carousel-nav">
+          <button class="round" data-carousel="prev" aria-label="Anterior"></button>
+          <button class="round round--next" data-carousel="next" aria-label="Siguiente"></button>
         </div>
       </section>
 
-      <!-- ================= OFERTAS ================= -->
-      <section class="plans panel panel--light" id="ofertas">
+      <!-- ================= PLANES ================= -->
+      <section class="sec" id="planes">
         <div class="wrap">
-          <h2 class="h2">Invierte en tu Mente</h2>
-          <p class="lede">
-            Cultivo biotecnológico, medicina ancestral y acompañamiento consciente. Elige el plan que resuene con tu
-            proceso.
-          </p>
+          <header class="head">
+            <p class="eyebrow">Planes</p>
+            <h2 class="h2">Invierte en <em>tu bienestar</em></h2>
+          </header>
 
-          <div class="plans__grid">
+          <div class="plans">
             <article class="plan" data-tilt>
-              <img
-                class="plan__img"
-                src="assets/product-1month.webp"
-                alt="Un frasco de Melena de León"
-                width="600"
-                height="600"
-                loading="lazy"
-              />
-              <h3 class="plan__name">1 Mes</h3>
-              <p class="plan__tag">Prueba el poder</p>
-              <p class="plan__price"><span>$</span><b data-price="1month">Próximamente</b><span>COP</span></p>
+              <div class="plan__jars" aria-hidden="true">
+                <img src="assets/brand/jar.webp" alt="" width="300" height="312" loading="lazy" />
+              </div>
+              <h3>1 frasco</h3>
+              <p class="plan__price"><b data-price="1frasco">$119.900</b><small>COP</small></p>
               <p class="plan__ship">Envío 3-5 días hábiles (costo adicional)</p>
               <ul class="plan__list">
-                <li>60 cápsulas de Melena de León</li>
-                <li>Guía de uso incluida</li>
-                <li>Soporte por WhatsApp</li>
-                <li>Cultivo biotecnológico</li>
-                <li>Cápsulas veganas</li>
-                <li>Envase biodegradable hecho en Colombia</li>
+                <li>450 g de fórmula en polvo</li>
+                <li>15 porciones de 30 g</li>
               </ul>
-              <button class="btn btn--ink btn--block" data-plan="1month" disabled>Comenzar Ahora</button>
-            </article>
-
-            <article class="plan plan--hot" data-tilt>
-              <p class="plan__flag">Más Popular</p>
-              <img
-                class="plan__img"
-                src="assets/product-3months.webp"
-                alt="Tres frascos de Melena de León"
-                width="600"
-                height="600"
-                loading="lazy"
-              />
-              <h3 class="plan__name">Ritual 90 días</h3>
-              <p class="plan__tag">3 cajas · Compromiso consciente</p>
-              <p class="plan__price"><span>$</span><b data-price="3months">Próximamente</b><span>COP</span></p>
-              <p class="plan__save">Ahorra $333.000</p>
-              <p class="plan__ship">Envío gratis (3-5 días hábiles)</p>
-              <ul class="plan__list">
-                <li>180 cápsulas de Melena de León</li>
-                <li>Guía de uso incluida</li>
-                <li>Soporte prioritario por WhatsApp</li>
-                <li>Cultivo biotecnológico</li>
-                <li>Envío GRATIS (3-5 días hábiles)</li>
-                <li>Acceso a comunidad privada</li>
-                <li>Descuento en eventos y talleres</li>
-                <li>Garantía 30 días: si no es para ti, te devolvemos tu dinero</li>
-              </ul>
-              <button class="btn btn--signal btn--block" data-plan="3months" disabled>Elegir Plan</button>
+              <button class="btn btn--block" data-plan="1frasco" disabled>Muy pronto</button>
             </article>
 
             <article class="plan" data-tilt>
-              <p class="plan__flag plan__flag--alt">Mejor Valor</p>
-              <img
-                class="plan__img"
-                src="assets/product-6months.webp"
-                alt="Seis frascos de Melena de León"
-                width="600"
-                height="600"
-                loading="lazy"
-              />
-              <h3 class="plan__name">Ritual 180 días</h3>
-              <p class="plan__tag">6 cajas · Transformación total</p>
-              <p class="plan__price"><span>$</span><b data-price="6months">Próximamente</b><span>COP</span></p>
-              <p class="plan__save">Ahorra $666.000</p>
+              <div class="plan__jars" aria-hidden="true">
+                <img src="assets/brand/jar.webp" alt="" width="300" height="312" loading="lazy" />
+                <img src="assets/brand/jar.webp" alt="" width="300" height="312" loading="lazy" />
+              </div>
+              <h3>2 frascos</h3>
+              <p class="plan__price"><b data-price="2frascos">$225.900</b><small>COP</small></p>
               <p class="plan__ship">Envío gratis (3-5 días hábiles)</p>
               <ul class="plan__list">
-                <li>360 cápsulas de Melena de León</li>
-                <li>Guía de uso incluida</li>
-                <li>Soporte VIP por WhatsApp</li>
-                <li>Cultivo biotecnológico</li>
-                <li>Envío GRATIS (3-5 días hábiles)</li>
-                <li>Acceso a comunidad privada</li>
-                <li>Descuento en eventos y talleres</li>
-                <li>Acompañamiento y asesoría</li>
-                <li>Garantía 30 días: si no es para ti, te devolvemos tu dinero</li>
+                <li>900 g de fórmula en polvo</li>
+                <li>30 porciones de 30 g</li>
+                <li>Ahorras $13.900</li>
               </ul>
-              <button class="btn btn--ink btn--block" data-plan="6months" disabled>Elegir Plan</button>
+              <button class="btn btn--block" data-plan="2frascos" disabled>Muy pronto</button>
+            </article>
+
+            <article class="plan" data-tilt>
+              <div class="plan__jars" aria-hidden="true">
+                <img src="assets/brand/jar.webp" alt="" width="300" height="312" loading="lazy" />
+                <img src="assets/brand/jar.webp" alt="" width="300" height="312" loading="lazy" />
+                <img src="assets/brand/jar.webp" alt="" width="300" height="312" loading="lazy" />
+              </div>
+              <h3>3 frascos</h3>
+              <p class="plan__price"><b data-price="3frascos">$333.300</b><small>COP</small></p>
+              <p class="plan__ship">Envío gratis (3-5 días hábiles)</p>
+              <ul class="plan__list">
+                <li>1.350 g de fórmula en polvo</li>
+                <li>45 porciones de 30 g</li>
+                <li>Ahorras $26.400</li>
+              </ul>
+              <button class="btn btn--block" data-plan="3frascos" disabled>Muy pronto</button>
             </article>
           </div>
-
-          <ul class="plans__trust">
-            <li>Pago Seguro</li>
-            <li>Envío 3-5 días</li>
-            <li>100% Natural</li>
-          </ul>
         </div>
       </section>
 
-      <!-- ================= FAQ ================= -->
-      <section class="faq panel panel--dark panel--solid" id="faq">
-        <div class="wrap faq__grid">
-          <div class="faq__head tile tile--rosa">
-            <h2 class="h2">Preguntas Frecuentes</h2>
-            <p class="lede">Todo lo que necesitas saber sobre Melena de León</p>
-            <img
-              src="assets/mushroom-single.webp"
-              alt=""
-              width="640"
-              height="800"
-              loading="lazy"
-              class="tile__stk faq__sticker"
-            />
-          </div>
-          <div class="faq__list" id="faq-list">
+      <!-- ================= PREGUNTAS ================= -->
+      <section class="sec" id="faq">
+        <div class="wrap wrap--narrow">
+          <header class="head">
+            <p class="eyebrow">Resuelve tus dudas</p>
+            <h2 class="h2">Todo lo que necesitas saber sobre <em>Ethera Melena de León</em></h2>
+          </header>
+
+          <div class="faq" id="faq-list">
             <div class="qa">
               <h3>
-                <button aria-expanded="false" aria-controls="qa-1">
-                  ¿Para qué sirve la Melena de León fermentada?
+                <button type="button" aria-expanded="false" aria-controls="a1" id="q1">
+                  ¿Qué contiene la Melena de León Ethera?<i aria-hidden="true"></i>
                 </button>
               </h3>
-              <div class="qa__body" id="qa-1">
-                <p>
-                  Apoya la claridad mental, el enfoque y potencia la creatividad. Además aumenta el bienestar general
-                  gracias a sus compuestos bioactivos naturales.
-                </p>
+              <div class="qa__a" id="a1" role="region" aria-labelledby="q1">
+                <div>
+                  <p>
+                    Once ingredientes: Melena de León, Colina (Alfa-GPC), Treonato de Magnesio, Fenilalanina, Tirosina,
+                    DHA, Guaraná, Taurina, Salvia, Arándano azul y Cacao. Es un alimento en polvo a base de harina de
+                    coco.
+                  </p>
+                </div>
               </div>
             </div>
             <div class="qa">
               <h3>
-                <button aria-expanded="false" aria-controls="qa-2">
-                  ¿Cuál es la diferencia entre fermentación y el hongo puro deshidratado?
+                <button type="button" aria-expanded="false" aria-controls="a2" id="q2">
+                  ¿Cuánto producto trae el envase?<i aria-hidden="true"></i>
                 </button>
               </h3>
-              <div class="qa__body" id="qa-2">
-                <p>
-                  La fermentación ayuda a predigerir y transformar compuestos, lo que mejora significativamente su
-                  absorción y potencia, además suaviza la digestión.
-                </p>
-              </div>
-            </div>
-            <div class="qa">
-              <h3><button aria-expanded="false" aria-controls="qa-3">¿Qué beneficios puedo esperar?</button></h3>
-              <div class="qa__body" id="qa-3">
-                <p>Mayor enfoque, memoria más clara, creatividad fluida y apoyo al sistema nervioso.</p>
+              <div class="qa__a" id="a2" role="region" aria-labelledby="q2">
+                <div><p>Cada frasco trae 450 g de contenido neto, aproximadamente 15 porciones de 30 g.</p></div>
               </div>
             </div>
             <div class="qa">
               <h3>
-                <button aria-expanded="false" aria-controls="qa-4">¿En cuánto tiempo se sienten los efectos?</button>
-              </h3>
-              <div class="qa__body" id="qa-4">
-                <p>
-                  Los primeros cambios perceptuales sutiles pueden notarse entre 5 y 15 días de uso continuo. Para
-                  cambios notorios y sostenidos, se recomienda un mínimo de 3 meses de uso constante.
-                </p>
-              </div>
-            </div>
-            <div class="qa">
-              <h3>
-                <button aria-expanded="false" aria-controls="qa-5">
-                  ¿Puedo tomarla si estoy en tratamiento médico?
+                <button type="button" aria-expanded="false" aria-controls="a3" id="q3">
+                  ¿Cómo se prepara?<i aria-hidden="true"></i>
                 </button>
               </h3>
-              <div class="qa__body" id="qa-5">
-                <p>Consulta primero con tu médico si tomas medicamentos o tienes condiciones específicas.</p>
+              <div class="qa__a" id="a3" role="region" aria-labelledby="q3">
+                <div>
+                  <p>
+                    Disuelve 1 medida (30 g) en 200 ml de agua, leche o bebida vegetal, siguiendo las indicaciones del
+                    etiquetado.
+                  </p>
+                </div>
               </div>
-            </div>
-            <div class="qa">
-              <h3><button aria-expanded="false" aria-controls="qa-6">¿Cuánta dosis debo tomar al día?</button></h3>
-              <div class="qa__body" id="qa-6"><p>Tomar 2 cápsulas al día es lo recomendado.</p></div>
-            </div>
-            <div class="qa">
-              <h3><button aria-expanded="false" aria-controls="qa-7">¿Hay riesgo de dependencia?</button></h3>
-              <div class="qa__body" id="qa-7"><p>Ninguno. Es un hongo funcional, no genera adicción.</p></div>
-            </div>
-            <div class="qa">
-              <h3><button aria-expanded="false" aria-controls="qa-8">¿De dónde proviene la Melena de León?</button></h3>
-              <div class="qa__body" id="qa-8">
-                <p>Proviene de cultivos controlados y sostenibles en Colombia, libres de pesticidas y agroquímicos.</p>
-              </div>
-            </div>
-            <div class="qa">
-              <h3><button aria-expanded="false" aria-controls="qa-9">¿Este hongo es psicodélico?</button></h3>
-              <div class="qa__body" id="qa-9"><p>No jejeje. Este no, puedes tomarlas tranquilamente.</p></div>
             </div>
             <div class="qa">
               <h3>
-                <button aria-expanded="false" aria-controls="qa-10">¿Durante cuánto tiempo hay que tomarlo?</button>
+                <button type="button" aria-expanded="false" aria-controls="a4" id="q4">
+                  ¿Contiene cafeína?<i aria-hidden="true"></i>
+                </button>
               </h3>
-              <div class="qa__body" id="qa-10">
-                <p>
-                  La evidencia muestra que el cuerpo necesita al menos 3 meses para empezar a revelar cambios
-                  perceptuales claros y notorios. Cuando lo tomas durante 6-8 meses, los efectos positivos se sienten
-                  más profundos y se sostienen en el tiempo.
-                </p>
+              <div class="qa__a" id="a4" role="region" aria-labelledby="q4">
+                <div>
+                  <p>
+                    Sí. Incluye guaraná, una fuente natural de cafeína. Si eres sensible a la cafeína, estás en
+                    embarazo o lactancia, o tienes alguna condición de salud, consulta antes con un profesional.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="qa">
+              <h3>
+                <button type="button" aria-expanded="false" aria-controls="a5" id="q5">
+                  ¿Qué beneficios puedo esperar?<i aria-hidden="true"></i>
+                </button>
+              </h3>
+              <div class="qa__a" id="a5" role="region" aria-labelledby="q5">
+                <div>
+                  <p>
+                    Ethera es una fórmula pensada para acompañar tu rutina y tus momentos de concentración. No promete
+                    una transformación instantánea ni reemplaza el descanso, una alimentación equilibrada o los
+                    hábitos que cuidan tu bienestar. Cada persona construye su propia relación con la fórmula.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="qa">
+              <h3>
+                <button type="button" aria-expanded="false" aria-controls="a6" id="q6">
+                  ¿Cuándo debo consumirlo?<i aria-hidden="true"></i>
+                </button>
+              </h3>
+              <div class="qa__a" id="a6" role="region" aria-labelledby="q6">
+                <div>
+                  <p>
+                    Cuando encaje mejor en tu rutina, por ejemplo antes de un momento de trabajo o estudio. Como
+                    contiene cafeína natural, evita tomarlo muy tarde si eres sensible a ella.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="qa">
+              <h3>
+                <button type="button" aria-expanded="false" aria-controls="a7" id="q7">
+                  ¿Genera dependencia?<i aria-hidden="true"></i>
+                </button>
+              </h3>
+              <div class="qa__a" id="a7" role="region" aria-labelledby="q7">
+                <div>
+                  <p>
+                    Ethera es un alimento en polvo, no un medicamento. Contiene guaraná como fuente natural de cafeína;
+                    si tienes dudas sobre tu consumo, consulta con un profesional de la salud.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="qa">
+              <h3>
+                <button type="button" aria-expanded="false" aria-controls="a8" id="q8">
+                  ¿Cómo puedo comprarlo?<i aria-hidden="true"></i>
+                </button>
+              </h3>
+              <div class="qa__a" id="a8" role="region" aria-labelledby="q8">
+                <div>
+                  <p>Elige tu plan en la sección de planes y continúa al pago. El envío tarda de 3 a 5 días hábiles.</p>
+                </div>
+              </div>
+            </div>
+            <div class="qa">
+              <h3>
+                <button type="button" aria-expanded="false" aria-controls="a9" id="q9">
+                  ¿Cuánto cuesta?<i aria-hidden="true"></i>
+                </button>
+              </h3>
+              <div class="qa__a" id="a9" role="region" aria-labelledby="q9">
+                <div>
+                  <p>
+                    1 frasco: $119.900 COP (envío con costo adicional). 2 frascos: $225.900 COP, envío gratis. 3
+                    frascos: $333.300 COP, envío gratis.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- ================= QUIÉNES SOMOS ================= -->
-      <section class="about panel panel--light" id="historia">
-        <div class="wrap about__grid">
-          <figure class="about__photo">
-            <img
-              src="assets/placeholder-4x5.svg"
-              alt="Marce y Tin, fundadores de ETHERA"
-              width="480"
-              height="600"
-              loading="lazy"
-            />
+      <!-- ================= NUESTRA HISTORIA ================= -->
+      <section class="sec" id="historia">
+        <div class="wrap split">
+          <figure class="split__fig">
+            <ul class="values panel" aria-label="Valores de Ethera">
+              <li>Escucha inteligente</li>
+              <li>Presencia activa</li>
+              <li>Ritmo biológico</li>
+              <li>Intención funcional</li>
+              <li>Honestidad clínica</li>
+              <li>Sensibilidad consciente</li>
+            </ul>
           </figure>
-          <div class="about__copy">
-            <h2 class="h2">¿Quiénes hay detrás de esta marca?</h2>
+          <div class="split__copy">
+            <p class="eyebrow">Nuestra historia</p>
+            <h2 class="h2">Detrás de Ethera hay una forma de entender el bienestar</h2>
             <p>
-              Somos <strong>Marce y Tin</strong>, caminantes del arte, la naturaleza y la conciencia. Dos almas que
-              encontraron en el arte y en los hongos un lenguaje de transformación.
+              Ethera explora el punto de encuentro entre el conocimiento, la consciencia y la manera en que habitamos
+              nuestro cuerpo.
             </p>
-            <p>ETHERA es un puente entre lo natural y lo humano, entre la ciencia y la ancestralidad.</p>
             <p>
-              Cada medicina que compartimos es una ofrenda, una semilla para la creatividad, la claridad y el despertar
-              colectivo.
+              Nuestra visión parte de una premisa: el bienestar no tiene que responder a una fórmula universal. Cada
+              elección merece información, intención y una mirada propia.
+            </p>
+            <p>
+              Creamos una marca para quienes sienten curiosidad, valoran los detalles y buscan relacionarse con sus
+              hábitos de una manera más consciente.
             </p>
           </div>
         </div>
       </section>
 
-      <div class="band band--hueso band--tilt-l" aria-hidden="true">
-        <div class="band__track">
-          <div class="band__set">
-            <span>¿Listo para despertar tu mente?</span
-            ><img src="assets/eye-circle.webp" alt="" width="40" height="40" loading="lazy" /><span
-              >Todos somos creadores</span
-            ><img src="assets/mushroom-single.webp" alt="" width="40" height="40" loading="lazy" /><span
-              >Medicina consciente</span
-            ><img src="assets/ufo.webp" alt="" width="40" height="40" loading="lazy" />
-          </div>
-          <div class="band__set">
-            <span>¿Listo para despertar tu mente?</span
-            ><img src="assets/eye-circle.webp" alt="" width="40" height="40" loading="lazy" /><span
-              >Todos somos creadores</span
-            ><img src="assets/mushroom-single.webp" alt="" width="40" height="40" loading="lazy" /><span
-              >Medicina consciente</span
-            ><img src="assets/ufo.webp" alt="" width="40" height="40" loading="lazy" />
-          </div>
-        </div>
-      </div>
-
-      <!-- ================= CTA FINAL ================= -->
-      <section class="final panel panel--dark panel--net" id="final" data-scene="4">
-        <div class="wrap final__inner">
-          <h2 class="final__title">¿Listo para despertar tu mente?</h2>
-          <p class="lede">
-            Aquí no solo vendemos, sembramos revolución interna. La medicina se transforma en arte, y el arte en vida.
+      <!-- ================= CIERRE ================= -->
+      <section class="final" id="final">
+        <div class="final__orb" aria-hidden="true"></div>
+        <div class="wrap final__in">
+          <h2 class="h2 h2--xl">¿Listo para elegir <em>con intención?</em></h2>
+          <p>
+            Descubre Ethera Melena de León: una fórmula en polvo de 450 g que reúne 11 ingredientes en una propuesta de
+            bienestar consciente.
           </p>
-          <a class="btn btn--signal btn--big" href="#ofertas" data-magnet>Ver Ofertas</a>
+          <p>Tu rutina, tus elecciones, tu manera de vivir el bienestar.</p>
+          <a class="btn btn--lg" href="#planes" data-magnet>Descubrir oferta</a>
         </div>
       </section>
     </main>
 
-    <footer class="foot panel panel--dark">
-      <div class="wrap foot__grid">
-        <div class="foot__brand">
-          <img src="assets/logo-vasija.webp" alt="" width="96" height="96" loading="lazy" />
-          <div>
-            <p class="foot__name">ETHERA</p>
-            <p>Laboratorio Artesano · Medicina Consciente</p>
-          </div>
-        </div>
-        <div class="foot__links">
+    <footer class="foot">
+      <div class="wrap foot__in">
+        <img src="assets/brand/logo-negro.webp" alt="Ethera" width="692" height="252" loading="lazy" />
+        <nav class="foot__links" aria-label="Redes y legal">
           <a href="#" data-social="instagram" target="_blank" rel="noopener noreferrer">Instagram</a>
           <a href="#" data-social="facebook" target="_blank" rel="noopener noreferrer">Facebook</a>
-        </div>
-        <p class="foot__legal">
-          © 2026 ETHERA · Todos somos creadores ·
           <a href="#" data-privacy target="_blank" rel="noopener noreferrer">Política de privacidad</a>
-        </p>
+        </nav>
+        <p class="foot__legal">© Ethera · Todos los derechos reservados.</p>
       </div>
+      <p class="wrap foot__note">
+        Ethera es un alimento en polvo, no un medicamento, y no pretende diagnosticar, tratar ni prevenir
+        enfermedades. Consulta a un profesional de la salud si estás en embarazo o lactancia, tomas medicamentos o
+        tienes alguna condición médica.
+      </p>
     </footer>
+    <div class="rainbow" aria-hidden="true"></div>
 
     <!-- Aviso de cookies -->
     <div class="cookies" id="cookies" role="region" aria-label="Aviso de cookies">
@@ -823,7 +581,6 @@
 
     <!-- WhatsApp -->
     <a class="wa" data-whatsapp href="#" target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp">
-      <span class="wa__tip">¿Dudas? Escríbenos</span>
       <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor" aria-hidden="true">
         <path
           d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5.2.6.8 2 .8 2.1.1.1.1.3 0 .5-.1.2-.1.3-.3.5l-.4.5c-.1.1-.3.3-.1.6.2.3.7 1.2 1.5 1.9 1 .9 1.9 1.2 2.2 1.3.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.6.3.1.2.1.7-.1 1.2Z"
@@ -835,33 +592,19 @@
     <div class="pop" id="eth-popup" role="dialog" aria-modal="true" aria-labelledby="eth-popup-title">
       <div class="pop__box">
         <button type="button" class="pop__close" id="eth-popup-close" aria-label="Cerrar">&#x2715;</button>
-        <img class="pop__img" src="assets/brain.webp" alt="" width="92" height="92" />
-        <h2 id="eth-popup-title">¡Obtén un descuento del 10% en tu primera compra!</h2>
+        <img class="pop__logo" src="assets/brand/logo-color.webp" alt="Ethera" width="692" height="252" />
+        <h2 id="eth-popup-title">Un 10% menos en tu primera compra</h2>
+        <p>Déjanos tu correo y te lo enviamos.</p>
         <form id="eth-popup-form">
-          <input
-            type="email"
-            name="email"
-            placeholder="Introduce tu dirección de email"
-            autocomplete="email"
-            required
-          />
-          <label><input type="radio" name="perfil" value="artista" /> Soy artista y quiero creatividad</label>
-          <label
-            ><input type="radio" name="perfil" value="empresario" /> Soy empresario y quiero mejora cognitiva</label
-          >
-          <label
-            ><input type="radio" name="perfil" value="estudiante" /> Soy estudiante y quiero mejorar el
-            rendimiento</label
-          >
-          <label><input type="radio" name="perfil" value="ninguna" /> Ninguna de las anteriores</label>
+          <input type="email" name="email" placeholder="Tu correo electrónico" autocomplete="email" required />
           <label class="pop__consent">
-            <input type="checkbox" name="consent" required /> Acepto recibir correos y mensajes de ETHERA con novedades
-            y ofertas, y autorizo el tratamiento de mis datos según la política de tratamiento de datos.
+            <input type="checkbox" name="consent" required /> Acepto recibir correos de Ethera con novedades y ofertas, y
+            autorizo el tratamiento de mis datos según la política de tratamiento de datos.
           </label>
           <a class="pop__policy" href="#" data-privacy target="_blank" rel="noopener noreferrer"
             >Ver política de tratamiento de datos</a
           >
-          <button type="submit" class="btn btn--signal btn--block">Quiero mi 10%</button>
+          <button type="submit" class="btn btn--block">Quiero mi 10%</button>
         </form>
       </div>
     </div>
@@ -869,7 +612,6 @@
     <script src="js/config.js"></script>
     <script src="vendor/gsap.min.js"></script>
     <script src="vendor/ScrollTrigger.min.js"></script>
-    <script src="vendor/Draggable.min.js"></script>
     <script type="module" src="js/main.js"></script>
   </body>
 </html>

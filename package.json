@@ -1,15 +1,14 @@
 {
-  "name": "ethera-landing-rediseno",
+  "name": "ethera-landing",
   "version": "2.0.0",
   "private": true,
-  "description": "Rediseño interactivo de la landing de ETHERA (CSS plano + Three.js + GSAP, sin build)",
+  "description": "Landing de Ethera Melena de León (HTML + CSS plano + GSAP + aura WebGL, sin build)",
   "scripts": {
-    "vendor": "node -e \"const f=require('fs');f.mkdirSync('vendor',{recursive:true});['three/build/three.module.min.js','gsap/dist/gsap.min.js','gsap/dist/ScrollTrigger.min.js','gsap/dist/Draggable.min.js'].forEach(p=>f.copyFileSync('node_modules/'+p,'vendor/'+p.split('/').pop()))\"",
+    "vendor": "node -e \"const f=require('fs');f.mkdirSync('vendor',{recursive:true});['gsap/dist/gsap.min.js','gsap/dist/ScrollTrigger.min.js'].forEach(p=>f.copyFileSync('node_modules/'+p,'vendor/'+p.split('/').pop()))\"",
     "serve": "npx http-server . -p 8080 -c-1"
   },
   "dependencies": {
-    "gsap": "3.12.5",
-    "three": "0.170.0"
+    "gsap": "3.12.5"
   },
   "devDependencies": {
     "prettier": "3"
