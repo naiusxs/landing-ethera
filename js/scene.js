@@ -73,7 +73,7 @@ export function createScene(canvas, { lite = false, reducedMotion = false } = {}
   resize();
   addEventListener("resize", resize);
 
-  const st = { scroll: 0, px: 0.5, py: 0.5, tx: 0.5, ty: 0.5, amp: innerWidth < 700 ? 0.4 : 0.7, active: true, raf: 0, last: 0 };
+  const st = { scroll: 0, px: 0.5, py: 0.5, tx: 0.5, ty: 0.5, amp: innerWidth < 700 ? 0.26 : 0.7, active: true, raf: 0, last: 0 };
   const frame = (now) => {
     st.raf = 0;
     if (!st.active) return;

@@ -336,7 +336,7 @@ if (gsap && ScrollTrigger) {
     if (quote)
       gsap.fromTo(
         quote,
-        { opacity: 0.25, x: -16 },
+        { opacity: 0.55, x: -16 },
         { opacity: 1, x: 0, ease: "none", scrollTrigger: { trigger: quote, start: "top 92%", end: "top 62%", scrub: 0.4 } },
       );
   }
