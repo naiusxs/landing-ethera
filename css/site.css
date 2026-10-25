@@ -156,22 +156,37 @@ em { font-style: normal; color: var(--accent); }
 .card {
   position: relative; isolation: isolate; overflow: hidden;
   display: grid; gap: 8px; align-content: start;
-  padding: 28px; border: 1.5px solid var(--accent); border-radius: var(--r);
-  background: rgba(255, 252, 240, 0.93);
-  transition: translate 0.4s var(--ease), box-shadow 0.4s;
+  padding: 28px; border: 1.5px solid rgba(var(--c), 0.55); border-radius: var(--r);
+  background: linear-gradient(150deg, rgba(var(--c), 0.2), rgba(var(--c2), 0.1) 60%, rgba(255, 252, 240, 0.94));
+  background-color: rgba(255, 252, 240, 0.93);
+  transition: translate 0.4s var(--ease), box-shadow 0.4s, border-color 0.4s;
   --mx: 50%; --my: 0%;
 }
-.card::before {
-  content: ""; position: absolute; inset: 0; z-index: -1; opacity: 0; transition: opacity 0.4s;
-  background: radial-gradient(260px circle at var(--mx) var(--my), rgba(255, 190, 90, 0.4), transparent 70%);
+/* franja de color arriba y esquina difuminada, como en la landing original */
+.card::before, .step::before, .plan::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 5px; z-index: -1; border-radius: var(--r) var(--r) 0 0;
+  background: linear-gradient(90deg, rgb(var(--c)), rgb(var(--c2)));
 }
-.card:hover { translate: 0 -5px; box-shadow: 0 22px 40px -26px rgba(255, 110, 0, 0.55); }
-.card:hover::before { opacity: 1; }
+.card::after, .step::after, .plan::after {
+  content: ""; position: absolute; right: 0; bottom: 0; width: 38%; aspect-ratio: 1; z-index: -1; pointer-events: none;
+  border-radius: 100% 0 var(--r) 0; opacity: 0.22; transition: opacity 0.4s;
+  background: linear-gradient(315deg, rgb(var(--c)), rgb(var(--c2)) 60%, transparent);
+}
+.card:hover, .step:hover, .plan:hover { border-color: rgb(var(--c)); }
+.card:hover::after, .step:hover::after, .plan:hover::after { opacity: 0.4; }
+.card:hover { translate: 0 -5px; box-shadow: 0 22px 40px -26px rgba(var(--c), 0.8); }
 .card__ic {
   display: grid; place-items: center; width: 52px; height: 52px; margin-bottom: 14px; border-radius: 16px;
-  background: url("../assets/brand/gradient.webp") var(--bx) var(--by) / 360% auto;
+  background: linear-gradient(135deg, rgb(var(--c)), rgb(var(--c2)));
   color: #fff; font: 700 1.1rem/1 var(--serif); text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
+/* paleta de la marca repartida por tarjeta */
+:is(.cards, .steps, .plans) > :nth-child(6n + 1) { --c: 0, 162, 255; --c2: 139, 195, 74; }
+:is(.cards, .steps, .plans) > :nth-child(6n + 2) { --c: 139, 195, 74; --c2: 230, 200, 0; }
+:is(.cards, .steps, .plans) > :nth-child(6n + 3) { --c: 230, 200, 0; --c2: 255, 110, 31; }
+:is(.cards, .steps, .plans) > :nth-child(6n + 4) { --c: 255, 110, 31; --c2: 255, 42, 10; }
+:is(.cards, .steps, .plans) > :nth-child(6n + 5) { --c: 106, 69, 160; --c2: 0, 162, 255; }
+:is(.cards, .steps, .plans) > :nth-child(6n + 6) { --c: 255, 42, 10; --c2: 106, 69, 160; }
 .card h3, .step h3, .plan h3 { font: 700 1.3rem/1.2 var(--serif); }
 .card p { color: var(--ink-soft); font-size: 1rem; }
 .extras { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px; margin-top: 24px; }
@@ -180,11 +195,11 @@ em { font-style: normal; color: var(--accent); }
 
 /* pasos */
 .steps { display: grid; gap: 22px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); counter-reset: s; position: relative; }
-.step { position: relative; display: grid; gap: 10px; align-content: start; padding: 30px 24px 26px; border: 1.5px solid var(--accent); border-radius: var(--r); background: rgba(255, 252, 240, 0.93); }
+.step { position: relative; display: grid; gap: 10px; align-content: start; padding: 30px 24px 26px; isolation: isolate; border: 1.5px solid rgba(var(--c), 0.55); border-radius: var(--r); background: linear-gradient(150deg, rgba(var(--c), 0.2), rgba(var(--c2), 0.1) 60%, rgba(255, 252, 240, 0.94)), rgba(255, 252, 240, 0.93); }
 .step__n { position: absolute; left: -10px; top: -12px; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--accent); color: #fff; font: 700 1rem/1 var(--serif); transition: scale 0.5s var(--ease), background 0.4s; }
 .step.is-on .step__n { scale: 1.18; background: var(--ink); }
-.step__ic { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 16px; margin-bottom: 6px; background: linear-gradient(135deg, #fde3c0, #fbb99e); }
-.step__ic svg { width: 30px; height: 30px; fill: none; stroke: var(--accent); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.step__ic { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 16px; margin-bottom: 6px; background: linear-gradient(135deg, rgb(var(--c)), rgb(var(--c2))); }
+.step__ic svg { width: 30px; height: 30px; fill: none; stroke: #fff; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
 .step p { color: var(--ink-soft); font-size: 1rem; }
 
 /* lema arcoíris */
@@ -238,7 +253,8 @@ em { font-style: normal; color: var(--accent); }
 .plan {
   --rx: 0deg; --ry: 0deg;
   display: grid; gap: 14px; align-content: start; justify-items: center; text-align: center; padding: 30px 26px 28px;
-  border: 1.5px solid var(--ink); border-radius: var(--r); background: rgba(255, 252, 240, 0.94);
+  position: relative; overflow: hidden; isolation: isolate;
+  border: 1.5px solid rgba(var(--c), 0.6); border-radius: var(--r); background: linear-gradient(150deg, rgba(var(--c), 0.2), rgba(var(--c2), 0.1) 60%, rgba(255, 252, 240, 0.94)), rgba(255, 252, 240, 0.94);
   transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry));
   transition: transform 0.25s ease-out, box-shadow 0.3s;
 }
