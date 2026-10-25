@@ -223,8 +223,20 @@ em { font-style: normal; color: var(--accent); }
 .panel--rainbow { display: grid; place-content: center; justify-items: center; gap: 18px; background: url("../assets/brand/gradient.webp") center / cover; color: #fff; text-align: center; }
 .panel--rainbow img { width: 64%; }
 .panel--rainbow p { font: 600 1.15rem/1 var(--sans); letter-spacing: 0.14em; text-transform: uppercase; }
-.panel--orb { background: transparent; }
-.panel--orb img { width: 100%; }
+.panel--orb { background: transparent; overflow: visible; }
+/* el borde del webp no es 100% transparente: la máscara lo desvanece para que no se vea el cuadro */
+.panel--orb img {
+  width: 100%; display: block; --ox: 0; --oy: 0; will-change: transform;
+  -webkit-mask-image: radial-gradient(circle closest-side, #000 62%, transparent 98%);
+  mask-image: radial-gradient(circle closest-side, #000 62%, transparent 98%);
+  translate: calc(var(--ox) * 34px) calc(var(--oy) * 34px);
+  transition: translate 0.7s var(--ease), filter 0.5s;
+  animation: orb-spin 38s linear infinite, orb-breathe 7s ease-in-out infinite alternate;
+}
+.split__fig:hover .panel--orb img { filter: saturate(1.25) brightness(1.04); }
+@keyframes orb-spin { to { rotate: 360deg; } }
+@keyframes orb-breathe { from { scale: 0.94; } to { scale: 1.08; } }
+@media (prefers-reduced-motion: reduce) { .panel--orb img { animation: none; } }
 .values { display: grid; align-content: center; gap: 10px; padding: 28px; border: 1.5px solid var(--accent); background: rgba(255, 252, 240, 0.93); aspect-ratio: auto; }
 .values li { padding: 14px 20px; border-radius: 16px; font: 700 1.2rem/1.1 var(--serif); background: rgba(255, 255, 255, 0.6); border: 1px solid rgba(11, 11, 11, 0.12); transition: background 0.3s, translate 0.3s var(--ease); }
 .values li:hover { translate: 6px 0; background: #fff; }

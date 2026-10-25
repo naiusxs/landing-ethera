@@ -159,6 +159,20 @@ if (fine && !reduce) {
       card.style.setProperty("--my", e.clientY - r.top + "px");
     });
   });
+  // Orbe de color: se desplaza hacia el puntero y vuelve a su sitio al salir
+  $$(".panel--orb").forEach((panel) => {
+    const fig = panel.closest(".split__fig");
+    const img = panel.querySelector("img");
+    fig.addEventListener("pointermove", (e) => {
+      const r = panel.getBoundingClientRect();
+      img.style.setProperty("--ox", (((e.clientX - r.left) / r.width - 0.5) * 2).toFixed(2));
+      img.style.setProperty("--oy", (((e.clientY - r.top) / r.height - 0.5) * 2).toFixed(2));
+    });
+    fig.addEventListener("pointerleave", () => {
+      img.style.setProperty("--ox", 0);
+      img.style.setProperty("--oy", 0);
+    });
+  });
   // Botones magnéticos
   $$("[data-magnet]").forEach((b) => {
     b.addEventListener("pointermove", (e) => {
