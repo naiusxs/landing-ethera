@@ -270,22 +270,32 @@ if (gsap && ScrollTrigger) {
       .from(".hero__jar", { y: 60, opacity: 0, rotate: -8, duration: 1.2 }, 0.35)
       .from(".tag", { opacity: 0, scale: 0.7, duration: 0.7, stagger: 0.15, ease: "back.out(1.6)" }, 1.1);
 
-    // Aparición al hacer scroll
-    const reveal = (sel, vars = {}) =>
-      ScrollTrigger.batch(sel, {
-        start: "top 88%",
+    // Aparición al hacer scroll. El estado inicial se fija ANTES de entrar en pantalla
+    // (con gsap.from el contenido se veía y luego saltaba a invisible: ese era el parpadeo).
+    const reveal = (sel, from, { duration = 0.9, stagger = 0.09, ease = "power3.out", start = "top 88%" } = {}) => {
+      const els = $$(sel);
+      if (!els.length) return;
+      gsap.set(els, { opacity: 0, ...from });
+      ScrollTrigger.batch(els, {
+        start,
         once: true,
-        onEnter: (els) =>
-          gsap.from(els, { opacity: 0, y: 36, duration: 0.8, stagger: 0.09, ease: "power3.out", overwrite: true, ...vars }),
+        onEnter: (batch) =>
+          gsap.to(batch, {
+            opacity: 1, x: 0, y: 0, scale: 1, rotate: 0, rotateX: 0, filter: "blur(0px)",
+            duration, stagger, ease, overwrite: true, clearProps: "transform,filter,opacity",
+          }),
       });
-    reveal(".head > *");
-    reveal(".card");
-    reveal(".step");
-    reveal(".plan");
-    reveal(".qa", { y: 20, stagger: 0.05 });
-    reveal(".extras > *", { y: 14, stagger: 0.05 });
-    reveal(".split__copy > *", { y: 24 });
-    reveal(".exp", { x: 40, y: 0 });
+    };
+    // Cada tipo de contenido entra distinto
+    reveal(".head > *", { y: 30, filter: "blur(8px)" }, { duration: 1, stagger: 0.12 });
+    reveal(".card", { y: 60, scale: 0.92, rotate: 2 }, { duration: 1, stagger: 0.1, ease: "back.out(1.3)" });
+    reveal(".step", { x: -50, rotate: -2 }, { stagger: 0.14 });
+    reveal(".plan", { y: 80, scale: 0.9 }, { duration: 1.1, stagger: 0.16, ease: "expo.out" });
+    reveal(".qa", { x: -24 }, { duration: 0.7, stagger: 0.05 });
+    reveal(".extras > *", { scale: 0.6 }, { duration: 0.6, stagger: 0.05, ease: "back.out(2)" });
+    reveal(".split__copy > *", { x: -34, filter: "blur(6px)" }, { stagger: 0.1 });
+    reveal(".split__fig", { scale: 0.85, rotate: 3 }, { duration: 1.2, ease: "expo.out" });
+    reveal(".exp", { x: 60, rotate: 3 }, { stagger: 0.1 });
 
     // Paneles: flotan con el scroll
     $$("[data-float]").forEach((el) =>
