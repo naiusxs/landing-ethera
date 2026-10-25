@@ -272,19 +272,25 @@ if (gsap && ScrollTrigger) {
 
     // Aparición al hacer scroll. El estado inicial se fija ANTES de entrar en pantalla
     // (con gsap.from el contenido se veía y luego saltaba a invisible: ese era el parpadeo).
-    const reveal = (sel, from, { duration = 0.9, stagger = 0.09, ease = "power3.out", start = "top 88%" } = {}) => {
+    const reveal = (sel, from, { duration = 0.9, stagger = 0.09, ease = "power3.out", start = "top 92%" } = {}) => {
       const els = $$(sel);
       if (!els.length) return;
-      gsap.set(els, { opacity: 0, ...from });
+      const hidden = { opacity: 0, ...from };
+      const show = (batch) =>
+        gsap.to(batch, {
+          opacity: 1, x: 0, y: 0, scale: 1, rotate: 0, rotateX: 0, filter: "blur(0px)",
+          duration, stagger, ease, overwrite: true, clearProps: "transform,filter,opacity",
+        });
+      // Se reinicia al salir de pantalla, por arriba o por abajo, y vuelve a entrar al regresar
       ScrollTrigger.batch(els, {
         start,
-        once: true,
-        onEnter: (batch) =>
-          gsap.to(batch, {
-            opacity: 1, x: 0, y: 0, scale: 1, rotate: 0, rotateX: 0, filter: "blur(0px)",
-            duration, stagger, ease, overwrite: true, clearProps: "transform,filter,opacity",
-          }),
+        end: "bottom 6%",
+        onEnter: show,
+        onEnterBack: show,
+        onLeave: (batch) => gsap.set(batch, { ...hidden, overwrite: true }),
+        onLeaveBack: (batch) => gsap.to(batch, { ...hidden, duration: 0.25, stagger: 0, overwrite: true }),
       });
+      gsap.set(els, hidden);
     };
     // Cada tipo de contenido entra distinto
     reveal(".head > *", { y: 30, filter: "blur(8px)" }, { duration: 1, stagger: 0.12 });
