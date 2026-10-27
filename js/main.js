@@ -190,9 +190,12 @@ const bannerCanvas = $(".slogan__canvas");
 if (bannerCanvas) {
   import("./banner.js")
     .then((m) => {
-      if (!m.createBanner(bannerCanvas, { lite, reducedMotion: reduce })) bannerCanvas.remove();
+      if (!m.createBanner(bannerCanvas, { lite, reducedMotion: reduce })) throw new Error("sin WebGL");
     })
-    .catch(() => bannerCanvas.remove());
+    .catch(() => {
+      bannerCanvas.remove();
+      $(".slogan").classList.add("slogan--css");
+    });
 }
 
 // ---------- Cookies y popup ----------
@@ -353,23 +356,17 @@ if (gsap && ScrollTrigger) {
       ScrollTrigger.create({ trigger: s, start: "top 62%", end: "bottom 38%", toggleClass: { targets: s, className: "is-on" } }),
     );
 
-    // Lema: sube palabra por palabra
-    const slogan = $("#slogan");
-    if (slogan) {
-      slogan.innerHTML = slogan.textContent
-        .trim()
-        .split(/\s+/)
-        .map((w) => '<span class="wd">' + w + "</span>")
-        .join(" ");
-      gsap.from($$(".wd", slogan), {
-        opacity: 0,
-        y: 40,
-        duration: 0.9,
-        stagger: 0.07,
-        ease: "power3.out",
-        scrollTrigger: { trigger: slogan, start: "top 80%", once: true },
-      });
-    }
+    // Lema: el logo y la frase entran enfocándose
+    gsap.from(".slogan__logo, .slogan__t", {
+      opacity: 0,
+      y: 36,
+      filter: "blur(10px)",
+      duration: 1.1,
+      stagger: 0.18,
+      ease: "power3.out",
+      clearProps: "filter,transform,opacity",
+      scrollTrigger: { trigger: ".slogan", start: "top 75%", once: true },
+    });
 
     // Cita de la filosofía: se ilumina con el scroll
     const quote = $("#quote");

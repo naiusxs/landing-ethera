@@ -101,6 +101,8 @@ export function createBanner(canvas, { lite = false, reducedMotion = false } = {
     st.px += (st.tx - st.px) * 0.07;
     st.py += (st.ty - st.py) * 0.07;
     st.h += (st.th - st.h) * 0.06;
+    host.style.setProperty("--mx", ((st.px - 0.5) * 2).toFixed(3));
+    host.style.setProperty("--my", ((0.5 - st.py) * 2).toFixed(3));
     draw(now);
   };
   const setOn = (on) => {
