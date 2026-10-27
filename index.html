@@ -22,6 +22,7 @@
     <link rel="preload" href="fonts/gilroy-500.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="assets/brand/jar.webp" as="image" />
     <link rel="stylesheet" href="css/site.css" />
+    <link rel="stylesheet" href="css/ethera-banner.css" />
     <script>
       document.documentElement.classList.add("js");
     </script>
@@ -224,30 +225,20 @@
       </section>
 
       <!-- ================= LEMA (arcoíris de marca) ================= -->
-      <section class="slogan" aria-label="Lema de la marca">
-        <!-- Letras con grano y estática: bordes ásperos, puntos que se apagan y un halo borroso, como en la animación de marca -->
-        <svg width="0" height="0" style="position: absolute" aria-hidden="true" focusable="false">
-          <filter id="grainy" x="-8%" y="-20%" width="116%" height="140%" color-interpolation-filters="sRGB">
-            <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="3" result="noise">
-              <animate id="grainy-seed" attributeName="seed" values="3;11;5;17;7;13;2;19" dur="1.2s" calcMode="discrete" repeatCount="indefinite" />
-            </feTurbulence>
-            <feColorMatrix in="noise" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  6 0 0 0 -0.12" result="speckle" />
-            <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.5" xChannelSelector="R" yChannelSelector="G" result="rough" />
-            <feGaussianBlur in="rough" stdDeviation="0.4" result="soft" />
-            <feComposite in="soft" in2="speckle" operator="in" result="letters" />
-            <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="halo" />
-            <feComponentTransfer in="halo" result="haloDim"><feFuncA type="linear" slope="0.18" /></feComponentTransfer>
-            <feMerge><feMergeNode in="haloDim" /><feMergeNode in="letters" /></feMerge>
-          </filter>
-        </svg>
-        <div class="slogan__field" aria-hidden="true">
-          <span class="blob blob--1"></span><span class="blob blob--2"></span><span class="blob blob--3"></span>
-          <span class="blob blob--4"></span><span class="blob blob--5"></span>
-          <span class="slogan__glow"></span><span class="slogan__grain"></span>
+      <section class="e-aura" aria-label="Cuidar del cuerpo no es una meta. Es una conversación constante.">
+        <div class="e-aura__field" aria-hidden="true">
+          <span class="e-aura__blob e-aura__blob--1"></span>
+          <span class="e-aura__blob e-aura__blob--2"></span>
+          <span class="e-aura__blob e-aura__blob--3"></span>
+          <span class="e-aura__blob e-aura__blob--4"></span>
+          <span class="e-aura__blob e-aura__blob--5"></span>
+          <span class="e-aura__glow"></span>
+          <span class="e-aura__grain"></span>
         </div>
-        <p class="slogan__t" id="slogan">
-          Cuidar del cuerpo no es una meta. Es una conversación constante.
-        </p>
+        <div class="e-aura__content">
+          <img class="e-aura__logo" src="assets/brand/logo-blanco.webp" alt="Ethera" width="692" height="252" loading="lazy" />
+          <p class="e-aura__text">Cuidar del cuerpo no es una meta. Es una conversación constante.</p>
+        </div>
       </section>
 
       <!-- ================= FILOSOFÍA ================= -->
@@ -633,5 +624,6 @@
     <script src="vendor/gsap.min.js"></script>
     <script src="vendor/ScrollTrigger.min.js"></script>
     <script type="module" src="js/main.js"></script>
+    <script src="js/ethera-banner.js" defer></script>
   </body>
 </html>
