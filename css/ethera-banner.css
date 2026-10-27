@@ -1,29 +1,4 @@
-/* Banner del lema: copia del banner oficial de la tienda (sections/ethera-aura.liquid) tal cual.
-   Solo cambia la tipografía de la frase, que aquí usa var(--sans). */
-.e-aura{position:relative;isolation:isolate;overflow:hidden;min-height:clamp(380px,56vw,640px);display:grid;place-items:center;background:#2f6bd8}
-.e-aura__field{position:absolute;inset:0;z-index:-1;filter:saturate(1.15)}
-.e-aura__blob{position:absolute;border-radius:50%;filter:blur(70px);will-change:transform;opacity:.95}
-.e-aura__blob--1{width:55%;aspect-ratio:1;left:-10%;top:-20%;background:#00aeff;animation:e-drift-1 7s ease-in-out infinite alternate}
-.e-aura__blob--2{width:50%;aspect-ratio:1;left:25%;top:30%;background:#7ab534;animation:e-drift-2 9s ease-in-out infinite alternate}
-.e-aura__blob--3{width:48%;aspect-ratio:1;left:-8%;top:45%;background:#e8c90a;animation:e-drift-3 8s ease-in-out infinite alternate}
-.e-aura__blob--4{width:52%;aspect-ratio:1;right:-12%;top:-15%;background:#f0301c;animation:e-drift-4 10s ease-in-out infinite alternate}
-.e-aura__blob--5{width:50%;aspect-ratio:1;right:-6%;bottom:-30%;background:#6240b8;animation:e-drift-5 7.5s ease-in-out infinite alternate}
-.e-aura__grain{position:absolute;inset:0;opacity:.12;mix-blend-mode:overlay;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
-@keyframes e-drift-1{50%{transform:translate(-14%,30%) scale(1.05)}to{transform:translate(38%,22%) scale(1.15)}}
-@keyframes e-drift-2{50%{transform:translate(18%,-10%) scale(1.1)}to{transform:translate(-30%,-28%) scale(.9)}}
-@keyframes e-drift-3{50%{transform:translate(12%,26%) scale(.95)}to{transform:translate(45%,-24%) scale(1.2)}}
-@keyframes e-drift-4{50%{transform:translate(-8%,-22%) scale(1.15)}to{transform:translate(-40%,30%) scale(1.1)}}
-@keyframes e-drift-5{50%{transform:translate(20%,12%) scale(1.05)}to{transform:translate(-45%,-35%) scale(.95)}}
-.e-aura__content{display:flex;flex-direction:column;align-items:center;gap:clamp(14px,2vw,26px);padding:48px 20px;text-align:center}
-.e-aura__logo{width:clamp(220px,40vw,560px);height:auto;filter:drop-shadow(0 6px 30px rgba(20,10,60,.25))}
-.e-aura__text{margin:0;max-width:30ch;color:#fff;font-family:var(--sans);font-weight:600;font-size:clamp(15px,1.5vw,20px);line-height:1.35;text-shadow:0 2px 18px rgba(20,10,60,.35)}
-.e-aura{touch-action:pan-y;cursor:crosshair;--mx:0;--my:0;--gx:50%;--gy:50%;--gs:0}
-.e-aura__blob--1{translate:calc(var(--mx)*90px) calc(var(--my)*60px)}
-.e-aura__blob--2{translate:calc(var(--mx)*-140px) calc(var(--my)*-90px)}
-.e-aura__blob--3{translate:calc(var(--mx)*120px) calc(var(--my)*-70px)}
-.e-aura__blob--4{translate:calc(var(--mx)*-80px) calc(var(--my)*110px)}
-.e-aura__blob--5{translate:calc(var(--mx)*-160px) calc(var(--my)*-120px)}
-.e-aura__glow{position:absolute;left:var(--gx);top:var(--gy);width:46%;aspect-ratio:1;margin:-23% 0 0 -23%;border-radius:50%;background:radial-gradient(circle,rgba(255,236,170,.95),rgba(255,140,40,.55) 40%,transparent 70%);filter:blur(30px);mix-blend-mode:soft-light;opacity:calc(var(--gs)*.95);pointer-events:none}
-.e-aura__logo{translate:calc(var(--mx)*-10px) calc(var(--my)*-8px)}
-@media (max-width:749px){.e-aura__blob{filter:blur(48px)}}
-@media (prefers-reduced-motion:reduce){.e-aura__blob{animation:none;translate:none}.e-aura__logo{translate:none}.e-aura__glow{display:none}}
+/* Banner principal de la tienda oficial (sections/ethera-banner.liquid), tal cual */
+.e-banner{background:#fffcf0;line-height:0;margin-block:clamp(10px,2vw,24px)}
+.e-banner__link{display:block}
+.e-banner__img{display:block;width:100%;height:auto}
