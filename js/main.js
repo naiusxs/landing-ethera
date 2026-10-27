@@ -185,18 +185,14 @@ if (fine && !reduce) {
   });
 }
 
-// ---------- Banner del lema: el video carga al acercarse y se pausa fuera de pantalla ----------
-const bannerVideo = $(".slogan__video");
-if (bannerVideo && !reduce && !lite && "IntersectionObserver" in window) {
-  new IntersectionObserver(
-    ([entry]) => {
-      if (entry.isIntersecting) {
-        if (!bannerVideo.src) bannerVideo.src = bannerVideo.dataset.src;
-        bannerVideo.play().catch(() => {});
-      } else bannerVideo.pause();
-    },
-    { rootMargin: "200px" },
-  ).observe(bannerVideo);
+// ---------- Banner del lema: campo de color en WebGL ----------
+const bannerCanvas = $(".slogan__canvas");
+if (bannerCanvas) {
+  import("./banner.js")
+    .then((m) => {
+      if (!m.createBanner(bannerCanvas, { lite, reducedMotion: reduce })) bannerCanvas.remove();
+    })
+    .catch(() => bannerCanvas.remove());
 }
 
 // ---------- Cookies y popup ----------
