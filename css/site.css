@@ -235,6 +235,7 @@ em { font-style: normal; color: var(--accent); }
 @media (max-width: 749px) { .blob { filter: blur(48px); } }
 @media (prefers-reduced-motion: reduce) { .blob { animation: none; translate: none; } .slogan__glow { display: none; } }
 .slogan__t { max-width: 22ch; margin-inline: auto; color: #fff; font: 700 clamp(1.9rem, 5.4vw, 4.4rem) / 1.08 var(--sans); letter-spacing: 0.01em; text-transform: uppercase; text-wrap: balance; text-shadow: 0 2px 30px rgba(20, 10, 60, 0.35); }
+.slogan__t { filter: url(#grainy); }
 .slogan__t .wd { display: inline-block; }
 
 /* bloques de dos columnas */

@@ -218,6 +218,9 @@ if (fine && !reduce) {
   });
 }
 
+// ---------- Letras del lema: la estática solo se mueve con animación permitida ----------
+if (reduce || lite) $("#grainy-seed")?.remove();
+
 // ---------- Cookies y popup ----------
 const cookies = $("#cookies");
 const COOKIE_KEY = "ethera_cookies_ok";

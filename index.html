@@ -225,6 +225,21 @@
 
       <!-- ================= LEMA (arcoíris de marca) ================= -->
       <section class="slogan" aria-label="Lema de la marca">
+        <!-- Letras con grano y estática: bordes ásperos, puntos que se apagan y un halo borroso, como en la animación de marca -->
+        <svg width="0" height="0" style="position: absolute" aria-hidden="true" focusable="false">
+          <filter id="grainy" x="-8%" y="-20%" width="116%" height="140%" color-interpolation-filters="sRGB">
+            <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3" result="noise">
+              <animate id="grainy-seed" attributeName="seed" values="3;11;5;17;7;13;2;19" dur="0.8s" calcMode="discrete" repeatCount="indefinite" />
+            </feTurbulence>
+            <feColorMatrix in="noise" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  3.4 0 0 0 -0.5" result="speckle" />
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="7" xChannelSelector="R" yChannelSelector="G" result="rough" />
+            <feGaussianBlur in="rough" stdDeviation="0.7" result="soft" />
+            <feComposite in="soft" in2="speckle" operator="in" result="letters" />
+            <feGaussianBlur in="SourceGraphic" stdDeviation="9" result="halo" />
+            <feComponentTransfer in="halo" result="haloDim"><feFuncA type="linear" slope="0.55" /></feComponentTransfer>
+            <feMerge><feMergeNode in="haloDim" /><feMergeNode in="letters" /></feMerge>
+          </filter>
+        </svg>
         <div class="slogan__field" aria-hidden="true">
           <span class="blob blob--1"></span><span class="blob blob--2"></span><span class="blob blob--3"></span>
           <span class="blob blob--4"></span><span class="blob blob--5"></span>
