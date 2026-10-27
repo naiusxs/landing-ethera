@@ -185,6 +185,20 @@ if (fine && !reduce) {
   });
 }
 
+// ---------- Banner de video (el de la tienda oficial): carga al acercarse y se pausa fuera de pantalla ----------
+const bannerVideo = $(".e-banner__video");
+if (bannerVideo && !reduce && !lite && "IntersectionObserver" in window) {
+  new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        if (!bannerVideo.src) bannerVideo.src = bannerVideo.dataset.src;
+        bannerVideo.play().catch(() => {});
+      } else bannerVideo.pause();
+    },
+    { rootMargin: "200px" },
+  ).observe(bannerVideo);
+}
+
 // ---------- Cookies y popup ----------
 const cookies = $("#cookies");
 const COOKIE_KEY = "ethera_cookies_ok";
