@@ -159,6 +159,39 @@ if (fine && !reduce) {
       card.style.setProperty("--my", e.clientY - r.top + "px");
     });
   });
+  // Lema: los orbes de color se desplazan con el puntero y aparece un brillo bajo el cursor
+  const band = $(".slogan");
+  if (band) {
+    const t = { x: 0, y: 0, gx: 50, gy: 50, s: 0 };
+    const c = { ...t };
+    let raf = 0;
+    const tick = () => {
+      c.x += (t.x - c.x) * 0.08;
+      c.y += (t.y - c.y) * 0.08;
+      c.gx += (t.gx - c.gx) * 0.14;
+      c.gy += (t.gy - c.gy) * 0.14;
+      c.s += (t.s - c.s) * 0.08;
+      band.style.setProperty("--mx", c.x.toFixed(3));
+      band.style.setProperty("--my", c.y.toFixed(3));
+      band.style.setProperty("--gx", c.gx.toFixed(2) + "%");
+      band.style.setProperty("--gy", c.gy.toFixed(2) + "%");
+      band.style.setProperty("--gs", c.s.toFixed(3));
+      const moving = Math.abs(t.x - c.x) + Math.abs(t.y - c.y) + Math.abs(t.s - c.s) > 0.002;
+      raf = moving ? requestAnimationFrame(tick) : 0;
+    };
+    const kick = () => (raf = raf || requestAnimationFrame(tick));
+    band.addEventListener("pointermove", (e) => {
+      const r = band.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width;
+      const py = (e.clientY - r.top) / r.height;
+      Object.assign(t, { x: (px - 0.5) * 2, y: (py - 0.5) * 2, gx: px * 100, gy: py * 100, s: 1 });
+      kick();
+    });
+    band.addEventListener("pointerleave", () => {
+      Object.assign(t, { x: 0, y: 0, s: 0 });
+      kick();
+    });
+  }
   // Orbe de color: se desplaza hacia el puntero y vuelve a su sitio al salir
   $$(".panel--orb").forEach((panel) => {
     const fig = panel.closest(".split__fig");
@@ -183,19 +216,6 @@ if (fine && !reduce) {
     });
     b.addEventListener("pointerleave", () => (b.style.translate = ""));
   });
-}
-
-// ---------- Banner del lema: campo de color en WebGL ----------
-const bannerCanvas = $(".slogan__canvas");
-if (bannerCanvas) {
-  import("./banner.js")
-    .then((m) => {
-      if (!m.createBanner(bannerCanvas, { lite, reducedMotion: reduce })) throw new Error("sin WebGL");
-    })
-    .catch(() => {
-      bannerCanvas.remove();
-      $(".slogan").classList.add("slogan--css");
-    });
 }
 
 // ---------- Cookies y popup ----------
@@ -356,17 +376,23 @@ if (gsap && ScrollTrigger) {
       ScrollTrigger.create({ trigger: s, start: "top 62%", end: "bottom 38%", toggleClass: { targets: s, className: "is-on" } }),
     );
 
-    // Lema: el logo y la frase entran enfocándose
-    gsap.from(".slogan__logo, .slogan__t", {
-      opacity: 0,
-      y: 36,
-      filter: "blur(10px)",
-      duration: 1.1,
-      stagger: 0.18,
-      ease: "power3.out",
-      clearProps: "filter,transform,opacity",
-      scrollTrigger: { trigger: ".slogan", start: "top 75%", once: true },
-    });
+    // Lema: sube palabra por palabra
+    const slogan = $("#slogan");
+    if (slogan) {
+      slogan.innerHTML = slogan.textContent
+        .trim()
+        .split(/\s+/)
+        .map((w) => '<span class="wd">' + w + "</span>")
+        .join(" ");
+      gsap.from($$(".wd", slogan), {
+        opacity: 0,
+        y: 40,
+        duration: 0.9,
+        stagger: 0.07,
+        ease: "power3.out",
+        scrollTrigger: { trigger: slogan, start: "top 80%", once: true },
+      });
+    }
 
     // Cita de la filosofía: se ilumina con el scroll
     const quote = $("#quote");
