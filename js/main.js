@@ -159,39 +159,6 @@ if (fine && !reduce) {
       card.style.setProperty("--my", e.clientY - r.top + "px");
     });
   });
-  // Lema: los orbes de color se desplazan con el puntero y aparece un brillo bajo el cursor
-  const band = $(".slogan");
-  if (band) {
-    const t = { x: 0, y: 0, gx: 50, gy: 50, s: 0 };
-    const c = { ...t };
-    let raf = 0;
-    const tick = () => {
-      c.x += (t.x - c.x) * 0.08;
-      c.y += (t.y - c.y) * 0.08;
-      c.gx += (t.gx - c.gx) * 0.14;
-      c.gy += (t.gy - c.gy) * 0.14;
-      c.s += (t.s - c.s) * 0.08;
-      band.style.setProperty("--mx", c.x.toFixed(3));
-      band.style.setProperty("--my", c.y.toFixed(3));
-      band.style.setProperty("--gx", c.gx.toFixed(2) + "%");
-      band.style.setProperty("--gy", c.gy.toFixed(2) + "%");
-      band.style.setProperty("--gs", c.s.toFixed(3));
-      const moving = Math.abs(t.x - c.x) + Math.abs(t.y - c.y) + Math.abs(t.s - c.s) > 0.002;
-      raf = moving ? requestAnimationFrame(tick) : 0;
-    };
-    const kick = () => (raf = raf || requestAnimationFrame(tick));
-    band.addEventListener("pointermove", (e) => {
-      const r = band.getBoundingClientRect();
-      const px = (e.clientX - r.left) / r.width;
-      const py = (e.clientY - r.top) / r.height;
-      Object.assign(t, { x: (px - 0.5) * 2, y: (py - 0.5) * 2, gx: px * 100, gy: py * 100, s: 1 });
-      kick();
-    });
-    band.addEventListener("pointerleave", () => {
-      Object.assign(t, { x: 0, y: 0, s: 0 });
-      kick();
-    });
-  }
   // Orbe de color: se desplaza hacia el puntero y vuelve a su sitio al salir
   $$(".panel--orb").forEach((panel) => {
     const fig = panel.closest(".split__fig");
@@ -216,6 +183,20 @@ if (fine && !reduce) {
     });
     b.addEventListener("pointerleave", () => (b.style.translate = ""));
   });
+}
+
+// ---------- Banner del lema: el video carga al acercarse y se pausa fuera de pantalla ----------
+const bannerVideo = $(".slogan__video");
+if (bannerVideo && !reduce && !lite && "IntersectionObserver" in window) {
+  new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        if (!bannerVideo.src) bannerVideo.src = bannerVideo.dataset.src;
+        bannerVideo.play().catch(() => {});
+      } else bannerVideo.pause();
+    },
+    { rootMargin: "200px" },
+  ).observe(bannerVideo);
 }
 
 // ---------- Cookies y popup ----------
