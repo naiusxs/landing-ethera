@@ -272,13 +272,13 @@ em { font-style: normal; color: var(--accent); }
 .plan__jars img:nth-child(2) { translate: 0 -8px; }
 /* tercer frasco del plan de 3: los 9 softgel rotan con fundido, para mostrar que se puede elegir cualquiera */
 .plan__rot { position: relative; flex: none; width: 54px; height: 120px; margin-inline: 4px -8px; }
-.plan__jars .plan__rot img { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; animation: sg-rot 21.6s infinite both; animation-delay: calc(var(--i) * 2.4s); }
+.plan__jars .plan__rot img { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; animation: sg-rot 19.2s infinite both; animation-delay: calc(var(--i) * 2.4s); }
 .plan__jars .plan__rot img:first-child { opacity: 1; }
 @keyframes sg-rot {
   0% { opacity: 0; scale: 0.9; filter: blur(6px) drop-shadow(0 12px 10px rgba(120, 50, 10, 0.3)); }
-  4% { opacity: 1; scale: 1; filter: blur(0) drop-shadow(0 12px 10px rgba(120, 50, 10, 0.3)); }
-  11% { opacity: 1; scale: 1; filter: blur(0) drop-shadow(0 12px 10px rgba(120, 50, 10, 0.3)); }
-  15%, 100% { opacity: 0; scale: 1.06; filter: blur(6px) drop-shadow(0 12px 10px rgba(120, 50, 10, 0.3)); }
+  4.5% { opacity: 1; scale: 1; filter: blur(0) drop-shadow(0 12px 10px rgba(120, 50, 10, 0.3)); }
+  12.4% { opacity: 1; scale: 1; filter: blur(0) drop-shadow(0 12px 10px rgba(120, 50, 10, 0.3)); }
+  16.9%, 100% { opacity: 0; scale: 1.06; filter: blur(6px) drop-shadow(0 12px 10px rgba(120, 50, 10, 0.3)); }
 }
 @media (prefers-reduced-motion: reduce) { .plan__jars .plan__rot img { animation: none; } .plan__jars .plan__rot img:not(:first-child) { display: none; } }
 .plan__price { display: grid; justify-items: center; gap: 2px; }
