@@ -239,8 +239,8 @@ em { font-style: normal; color: var(--accent); }
 .values li:nth-child(even) { border-left: 6px solid #6a45a0; }
 
 /* experiencias */
-.carousel { width: min(100% - 2 * var(--gut), var(--wrap)); margin-inline: auto; }
-.carousel__track { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(8px, 1.6vw, 20px); list-style: none; padding: 0; }
+.carousel { width: min(100% - 2 * clamp(10px, 1.5vw, 24px), 1700px); margin-inline: auto; }
+.carousel__track { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(8px, 1.2vw, 20px); list-style: none; padding: 0; }
 .exp {
   position: relative; aspect-ratio: 9 / 16; border-radius: var(--r); overflow: hidden;
   background: url("../assets/brand/gradient.webp") var(--bx) var(--by) / auto 230% no-repeat; display: grid; place-items: end start; padding: 20px;
