@@ -410,7 +410,7 @@ if (gsap && ScrollTrigger) {
   document.addEventListener("visibilitychange", () => scene && scene.setActive(!document.hidden));
   (async () => {
     try {
-      const mod = await import("./scene.js");
+      const mod = await import("./scene.js?v=20261040");
       scene = mod.createScene(canvas, { lite, reducedMotion: reduce });
       if (!scene) canvas.remove();
       else scene.setScroll(progress());

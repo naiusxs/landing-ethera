@@ -5,8 +5,8 @@ const FRAG = `
 precision mediump float;
 uniform vec2 uRes; uniform float uT, uScroll, uAmp; uniform vec2 uPtr;
 const vec3 BG = vec3(1., .988, .941);
-const vec3 CYAN = vec3(0., .635, 1.), GREEN = vec3(.545, .765, .227), YELLOW = vec3(.9, .78, 0.),
-           ORANGE = vec3(1., .43, .12), PURPLE = vec3(.416, .27, .627), RED = vec3(1., .165, .04);
+const vec3 CYAN = vec3(1., .78, .56), GREEN = vec3(1., .7, .3), YELLOW = vec3(.98, .82, .38),
+           ORANGE = vec3(1., .43, .12), PURPLE = vec3(.96, .45, .36), RED = vec3(.9, .28, .1);
 float hash(vec2 p){ return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
 vec4 blob(vec2 p, vec2 c, float r, vec3 col){
   float d = length(p - c);
