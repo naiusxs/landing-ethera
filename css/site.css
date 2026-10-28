@@ -239,16 +239,13 @@ em { font-style: normal; color: var(--accent); }
 .values li:nth-child(even) { border-left: 6px solid #6a45a0; }
 
 /* experiencias */
-.carousel { overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-inline: var(--gut); container-type: inline-size; }
-.carousel::-webkit-scrollbar { display: none; }
-.carousel.is-drag { cursor: grabbing; scroll-snap-type: none; }
-.carousel__track { display: flex; gap: 20px; width: max-content; margin-inline: auto; }
+.carousel { width: min(100% - 2 * var(--gut), var(--wrap)); margin-inline: auto; }
+.carousel__track { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(10px, 2vw, 20px); list-style: none; padding: 0; }
 .exp {
-  position: relative; flex: 1 0 min(84vw, 400px); aspect-ratio: 9 / 16; border-radius: var(--r); scroll-snap-align: center; overflow: hidden;
+  position: relative; aspect-ratio: 4 / 5; border-radius: var(--r); overflow: hidden;
   background: url("../assets/brand/gradient.webp") var(--bx) var(--by) / auto 230% no-repeat; display: grid; place-items: end start; padding: 20px;
   transition: translate 0.4s var(--ease);
 }
-@media (min-width: 960px) { .exp { flex: 0 0 calc((min(100cqw, 1600px) - 40px) / 3); } }
 .exp:hover { translate: 0 -6px; }
 .exp__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; background: #000; }
 .exp span { padding: 8px 14px; border-radius: 999px; background: rgba(255, 252, 240, 0.9); font: 600 0.8rem/1 var(--sans); letter-spacing: 0.06em; text-transform: uppercase; }

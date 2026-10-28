@@ -345,7 +345,7 @@ if (gsap && ScrollTrigger) {
     reveal(".extras > *", { scale: 0.6 }, { duration: 0.6, stagger: 0.05, ease: "back.out(2)" });
     reveal(".split__copy > *", { x: -34, filter: "blur(6px)" }, { stagger: 0.1 });
     reveal(".split__fig", { scale: 0.85, rotate: 3 }, { duration: 1.2, ease: "expo.out" });
-    reveal(".exp", { x: 60, rotate: 3 }, { stagger: 0.1 });
+    reveal(".exp", { y: 60, scale: 0.94 }, { stagger: 0.1 });
 
     // Paneles: flotan con el scroll
     $$("[data-float]").forEach((el) =>
