@@ -249,6 +249,7 @@ em { font-style: normal; color: var(--accent); }
   transition: translate 0.4s var(--ease);
 }
 .exp:hover { translate: 0 -6px; }
+.exp__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; background: #000; }
 .exp span { padding: 8px 14px; border-radius: 999px; background: rgba(255, 252, 240, 0.9); font: 600 0.8rem/1 var(--sans); letter-spacing: 0.06em; text-transform: uppercase; }
 .carousel__nav { display: flex; justify-content: center; gap: 12px; margin-top: 24px; }
 .carousel__nav[hidden] { display: none; }
@@ -268,7 +269,7 @@ em { font-style: normal; color: var(--accent); }
   transition: transform 0.25s ease-out, box-shadow 0.3s;
 }
 .plan__jars { display: flex; justify-content: center; height: 120px; margin-bottom: 4px; }
-.plan__jars img { flex: none; width: 108px; margin-inline: -22px; filter: drop-shadow(0 12px 10px rgba(120, 50, 10, 0.3)); }
+.plan__jars img { flex: none; width: 108px; max-width: none; height: 120px; object-fit: contain; margin-inline: -22px; filter: drop-shadow(0 12px 10px rgba(120, 50, 10, 0.3)); }
 .plan__jars img:nth-child(2) { translate: 0 -8px; }
 .plan__price { display: grid; justify-items: center; gap: 2px; }
 .plan__price b { font: 700 2.6rem/1 var(--serif); }

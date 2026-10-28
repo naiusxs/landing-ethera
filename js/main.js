@@ -137,6 +137,22 @@ if (viewport) {
   });
 }
 
+// ---------- Experiencias: videos en bucle (como GIF), cargan al acercarse y se pausan fuera de pantalla ----------
+const expVideos = $$(".exp__video");
+if (expVideos.length && !reduce && "IntersectionObserver" in window) {
+  const io = new IntersectionObserver(
+    (entries) =>
+      entries.forEach(({ target: v, isIntersecting }) => {
+        if (isIntersecting) {
+          if (!v.src) v.src = v.dataset.src;
+          v.play().catch(() => {});
+        } else v.pause();
+      }),
+    { rootMargin: "200px" },
+  );
+  expVideos.forEach((v) => io.observe(v));
+}
+
 // ---------- Interacciones con puntero fino ----------
 if (fine && !reduce) {
   // Planes: inclinación suave
