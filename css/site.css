@@ -183,6 +183,8 @@ em { font-style: normal; color: var(--accent); }
   background: linear-gradient(135deg, rgb(var(--c)), rgb(var(--c2)));
   color: #fff; font: 700 1.1rem/1 var(--serif); text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
+.card__ic--img { padding: 0; overflow: hidden; background: none; text-shadow: none; }
+.card__ic--img img { width: 100%; height: 100%; object-fit: cover; }
 /* paleta naranja de la maqueta (naranja, ámbar y coral) repartida por tarjeta */
 :is(.cards, .steps, .plans) > :nth-child(6n + 1) { --c: 255, 138, 30; --c2: 255, 200, 90; }
 :is(.cards, .steps, .plans) > :nth-child(6n + 2) { --c: 255, 110, 31; --c2: 238, 90, 82; }
@@ -216,23 +218,10 @@ em { font-style: normal; color: var(--accent); }
 .quote { margin-top: 10px; padding-left: 18px; border-left: 2px solid var(--accent); color: #6e2a00; font-style: italic; font-size: 1.1rem; }
 .split__fig { display: grid; place-items: center; }
 .panel { position: relative; width: min(100%, 440px); aspect-ratio: 1; border-radius: var(--r); overflow: hidden; }
-.panel--rainbow { display: grid; place-content: center; justify-items: center; gap: 18px; background: linear-gradient(140deg, #ffb25a, #ff6e00 55%, #e5483a); color: #fff; text-align: center; }
-.panel--rainbow img { width: 64%; }
-.panel--rainbow p { font: 600 1.15rem/1 var(--sans); letter-spacing: 0.14em; text-transform: uppercase; }
-.panel--orb { background: transparent; overflow: visible; }
-/* el borde del webp no es 100% transparente: la máscara lo desvanece para que no se vea el cuadro */
-.panel--orb img {
-  width: 100%; display: block; --ox: 0; --oy: 0; will-change: transform;
-  -webkit-mask-image: radial-gradient(circle closest-side, #000 62%, transparent 98%);
-  mask-image: radial-gradient(circle closest-side, #000 62%, transparent 98%);
-  translate: calc(var(--ox) * 34px) calc(var(--oy) * 34px);
-  transition: translate 0.7s var(--ease), filter 0.5s;
-  animation: orb-spin 38s linear infinite, orb-breathe 7s ease-in-out infinite alternate;
-}
-.split__fig:hover .panel--orb img { filter: saturate(1.25) brightness(1.04); }
-@keyframes orb-spin { to { rotate: 360deg; } }
-@keyframes orb-breathe { from { scale: 0.94; } to { scale: 1.08; } }
-@media (prefers-reduced-motion: reduce) { .panel--orb img { animation: none; } }
+.panel--photo img { width: 100%; height: 100%; object-fit: cover; }
+/* manchas de color difuminadas en las esquinas de la foto, como en la maqueta */
+.panel--photo::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(circle at 92% 8%, rgba(255, 138, 30, 0.9) 0, rgba(255, 200, 90, 0.5) 18%, transparent 36%), radial-gradient(circle at 4% 96%, rgba(255, 110, 31, 0.85) 0, transparent 28%); }
+.panel--photo-b::after { background: radial-gradient(circle at 38% 0, rgba(255, 138, 30, 0.9) 0, rgba(255, 200, 90, 0.5) 20%, transparent 34%), radial-gradient(circle at 92% 98%, rgba(255, 110, 31, 0.85) 0, transparent 30%); }
 .values { display: grid; align-content: center; gap: 10px; padding: 28px; border: 1.5px solid var(--accent); background: rgba(255, 252, 240, 0.93); aspect-ratio: auto; }
 .values li { padding: 14px 20px; border-radius: 16px; font: 700 1.2rem/1.1 var(--serif); background: rgba(255, 255, 255, 0.6); border: 1px solid rgba(11, 11, 11, 0.12); transition: background 0.3s, translate 0.3s var(--ease); }
 .values li:hover { translate: 6px 0; background: #fff; }
